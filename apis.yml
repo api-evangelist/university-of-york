@@ -1,0 +1,92 @@
+---
+aid: university-of-york
+name: University of York
+description: >-
+  The University of York is a public research university in York, United Kingdom,
+  ranked #184 in the QS World University Rankings 2025 and a member of the Russell
+  Group. The university does not operate a dedicated public developer portal with
+  documented, self-service APIs. Its confirmed programmatic surface is largely
+  standards-based and library/research oriented: OAI-PMH metadata harvesting via the
+  shared White Rose Research Online and White Rose eTheses Online EPrints repositories,
+  and an Ex Libris Primo/Alma library discovery layer (YorSearch). The institution
+  maintains a verified GitHub organization focused on internal faculty/IT engineering
+  tooling rather than externally published APIs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/university-of-york/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - United Kingdom
+  - Research
+  - Library
+  - Open Access
+  - OAI-PMH
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: university-of-york:white-rose-research-oai
+    name: White Rose Research Online (OAI-PMH)
+    description: >-
+      OAI-PMH 2.0 metadata harvesting interface for White Rose Research Online, the
+      shared EPrints institutional repository of the Universities of York, Leeds and
+      Sheffield. Exposes harvestable metadata for research outputs deposited by
+      University of York authors. Confirmed live (HTTP 200) returning a valid Identify
+      response.
+    humanURL: https://eprints.whiterose.ac.uk/about.html
+    baseURL: https://eprints.whiterose.ac.uk/cgi/oai2
+    tags: [ Research, Open Access, OAI-PMH, Repository, Library, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://eprints.whiterose.ac.uk/about.html
+  - aid: university-of-york:white-rose-etheses-oai
+    name: White Rose eTheses Online (OAI-PMH)
+    description: >-
+      OAI-PMH 2.0 metadata harvesting interface for White Rose eTheses Online, the
+      shared EPrints theses repository for the Universities of York, Leeds and
+      Sheffield. Confirmed live (HTTP 200) returning a valid Identify response;
+      metadata policy is noted as not yet fully configured at the endpoint.
+    humanURL: https://etheses.whiterose.ac.uk/
+    baseURL: https://etheses.whiterose.ac.uk/cgi/oai2
+    tags: [ Research, Theses, Open Access, OAI-PMH, Repository, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://etheses.whiterose.ac.uk/
+  - aid: university-of-york:yorsearch-primo
+    name: YorSearch Library Discovery (Ex Libris Primo)
+    description: >-
+      YorSearch is the University of York library discovery service, built on the Ex
+      Libris Primo platform with an Alma library services backend (view id
+      44YORK-NUI). Primo exposes programmatic discovery via its REST and PNX/X-Services
+      interfaces; access is not openly documented by the university and typically
+      requires institutional credentials or an Ex Libris API key. The discovery UI is
+      confirmed live (HTTP 200).
+    humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
+    tags: [ Library, Discovery, Primo, Alma, Ex Libris, Catalogue ]
+    properties:
+      - type: Documentation
+        url: https://www.york.ac.uk/library/resources/yorsearch-help/
+common:
+  - type: Website
+    url: https://www.york.ac.uk/
+  - type: GitHub
+    url: https://github.com/university-of-york
+  - type: LinkedIn
+    url: https://uk.linkedin.com/school/uniofyork/
+  - type: Status
+    url: https://status.york.ac.uk/
+  - type: Plans
+    url: plans/university-of-york-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/university-of-york-rate-limits.yml
+  - type: FinOps
+    url: finops/university-of-york-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

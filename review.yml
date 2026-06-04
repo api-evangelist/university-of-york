@@ -1,0 +1,45 @@
+---
+name: University of York
+description: University of York public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/university-of-york/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      The University of York publishes no dedicated public developer portal and no
+      self-service, documented API program. Confirmed live programmatic surface is
+      standards-based and library/research oriented: White Rose Research Online and
+      White Rose eTheses Online both returned valid OAI-PMH 2.0 Identify responses
+      (HTTP 200), and the YorSearch Primo/Alma discovery UI is live (HTTP 200, view id
+      44YORK-NUI) though its Primo APIs are not openly documented. The verified GitHub
+      org exists but contains internal IT/faculty engineering tooling (e.g.
+      fmsys-alma-printing-api) rather than published external APIs. No data.york.ac.uk
+      open-data API resolved. No endpoints were fabricated; each URL below was probed
+      directly.
+    endpoints:
+      - url: https://eprints.whiterose.ac.uk/cgi/oai2?verb=Identify
+        status: 200
+        note: White Rose Research Online OAI-PMH 2.0; valid Identify response (shared York/Leeds/Sheffield EPrints repo).
+      - url: https://etheses.whiterose.ac.uk/cgi/oai2?verb=Identify
+        status: 200
+        note: White Rose eTheses Online OAI-PMH 2.0; valid Identify, metadata policy noted as not fully configured.
+      - url: https://yorsearch.york.ac.uk/primo-explore/search?vid=44YORK-NUI
+        status: 200
+        note: YorSearch Ex Libris Primo discovery UI (Alma backend); programmatic APIs not openly documented.
+      - url: https://status.york.ac.uk/
+        status: 200
+        note: Official IT Services service status page.
+      - url: https://github.com/university-of-york
+        status: 200
+        note: Verified official GitHub org (york.ac.uk domain badge); internal IT/faculty tooling repos.
+      - url: https://www.york.ac.uk/
+        status: 200
+        note: Official institutional website.
+      - url: https://uk.linkedin.com/school/uniofyork/
+        status: 999
+        note: Official LinkedIn school page; 999 is LinkedIn anti-bot response, page exists publicly.
+      - url: https://data.york.ac.uk/
+        status: 0
+        note: Did not resolve; no University of York open-data API portal at this host.
