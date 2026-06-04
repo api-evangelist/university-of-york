@@ -1,0 +1,70 @@
+vocabulary:
+  name: University of York OAI-PMH Vocabulary
+  description: >-
+    Controlled vocabulary of the OAI-PMH 2.0 protocol terms and Dublin Core
+    metadata elements observed on the University of York's confirmed
+    programmatic surface: the shared White Rose Research Online and White Rose
+    eTheses Online EPrints repositories. Terms are drawn from the live
+    Identify, ListMetadataFormats and GetRecord responses.
+  version: '1.0.0'
+  terms:
+    - term: verb
+      definition: Required OAI-PMH request argument selecting the protocol operation (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord).
+      tags: [oai-pmh, protocol, parameter]
+    - term: Identify
+      definition: OAI-PMH verb returning repository-level description (name, baseURL, protocolVersion, adminEmail, earliestDatestamp, deletedRecord policy, granularity).
+      tags: [oai-pmh, verb]
+    - term: GetRecord
+      definition: OAI-PMH verb retrieving a single metadata record by identifier and metadataPrefix.
+      tags: [oai-pmh, verb]
+    - term: ListRecords
+      definition: OAI-PMH verb harvesting records in bulk, supporting selective harvesting by from/until/set and flow control via resumptionToken.
+      tags: [oai-pmh, verb, harvesting]
+    - term: ListIdentifiers
+      definition: OAI-PMH verb returning record headers only, for lightweight harvesting.
+      tags: [oai-pmh, verb, harvesting]
+    - term: ListMetadataFormats
+      definition: OAI-PMH verb listing supported metadata prefixes and their schemas.
+      tags: [oai-pmh, verb]
+    - term: ListSets
+      definition: OAI-PMH verb returning the repository's set hierarchy used to partition records.
+      tags: [oai-pmh, verb]
+    - term: metadataPrefix
+      definition: Identifier of the metadata format. Confirmed formats include oai_dc, oai_bibl, oai_dc_orcid, oai_dc_primo, oai_openaire, didl, mets, rdf, rioxx.
+      tags: [oai-pmh, parameter, metadata-format]
+    - term: identifier
+      definition: Unique OAI item identifier, e.g. oai:eprints.whiterose.ac.uk:5.
+      tags: [oai-pmh, parameter, identifier]
+    - term: resumptionToken
+      definition: Opaque flow-control token for resuming an incomplete list response.
+      tags: [oai-pmh, parameter, flow-control]
+    - term: setSpec
+      definition: Hex-encoded set membership string returned in record headers.
+      tags: [oai-pmh, set]
+    - term: datestamp
+      definition: UTC modification timestamp of a record, granularity YYYY-MM-DDThh:mm:ssZ.
+      tags: [oai-pmh, header, datetime]
+    - term: deletedRecord
+      definition: Repository deletion-tracking policy; White Rose reports 'persistent'.
+      tags: [oai-pmh, identify, policy]
+    - term: oai_dc
+      definition: Simple Dublin Core metadata format, the OAI-PMH mandatory baseline.
+      tags: [metadata-format, dublin-core]
+    - term: rioxx
+      definition: RIOXX metadata application profile for UK research outputs and funder/open-access compliance.
+      tags: [metadata-format, uk, open-access]
+    - term: oai_openaire
+      definition: OpenAIRE metadata format for European research information interoperability.
+      tags: [metadata-format, openaire]
+    - term: dc:title
+      definition: Dublin Core element for the name of the research output or thesis.
+      tags: [dublin-core, metadata]
+    - term: dc:creator
+      definition: Dublin Core element naming an author/creator of the deposit.
+      tags: [dublin-core, metadata]
+    - term: dc:subject
+      definition: Dublin Core element for topical classification (e.g. Library of Congress class).
+      tags: [dublin-core, metadata]
+    - term: dc:relation
+      definition: Dublin Core element linking to the canonical EPrints record URL.
+      tags: [dublin-core, metadata]

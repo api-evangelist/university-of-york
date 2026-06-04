@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-york/main/json-schema/university-of-york-oai-record-schema.json",
+  "title": "OAI-PMH Record (White Rose / EPrints)",
+  "description": "JSON Schema for a single OAI-PMH 2.0 record as exposed by the White Rose Research Online and White Rose eTheses Online EPrints repositories. Modeled from confirmed live GetRecord responses. The metadata payload is the simple Dublin Core (oai_dc) element set.",
+  "type": "object",
+  "required": ["header"],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": ["identifier", "datestamp"],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "Unique OAI identifier.",
+          "examples": ["oai:eprints.whiterose.ac.uk:5"]
+        },
+        "datestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC datestamp of last modification (granularity YYYY-MM-DDThh:mm:ssZ).",
+          "examples": ["2016-10-28T17:09:02Z"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["deleted"],
+          "description": "Present and equal to 'deleted' for tombstone records."
+        },
+        "setSpec": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Hex-encoded set memberships."
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata payload. Absent when header.status is 'deleted'.",
+      "properties": {
+        "dc": { "$ref": "#/$defs/dublinCore" }
+      }
+    }
+  },
+  "$defs": {
+    "dublinCore": {
+      "type": "object",
+      "description": "Simple Dublin Core (DC 1.1) element set; every element is repeatable.",
+      "properties": {
+        "title": { "type": "array", "items": { "type": "string" } },
+        "creator": { "type": "array", "items": { "type": "string" } },
+        "subject": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "array", "items": { "type": "string" } },
+        "relation": { "type": "array", "items": { "type": "string" } },
+        "date": { "type": "array", "items": { "type": "string" } },
+        "type": { "type": "array", "items": { "type": "string" } },
+        "identifier": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

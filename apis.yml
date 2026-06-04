@@ -43,6 +43,12 @@ apis:
     properties:
       - type: Documentation
         url: https://eprints.whiterose.ac.uk/about.html
+      - type: OpenAPI
+        url: openapi/university-of-york-white-rose-research-oai.yaml
+      - type: x-json-schema
+        url: json-schema/university-of-york-oai-record-schema.json
+      - type: x-example
+        url: examples/university-of-york-getrecord-example.json
   - aid: university-of-york:white-rose-etheses-oai
     name: White Rose eTheses Online (OAI-PMH)
     description: >-
@@ -56,6 +62,10 @@ apis:
     properties:
       - type: Documentation
         url: https://etheses.whiterose.ac.uk/
+      - type: OpenAPI
+        url: openapi/university-of-york-white-rose-etheses-oai.yaml
+      - type: x-example
+        url: examples/university-of-york-identify-example.json
   - aid: university-of-york:yorsearch-primo
     name: YorSearch Library Discovery (Ex Libris Primo)
     description: >-
@@ -87,6 +97,12 @@ common:
     url: finops/university-of-york-finops.yml
   - type: Review
     url: review.yml
+  - type: x-vocabulary
+    url: vocabulary/university-of-york-vocabulary.yml
+  - type: x-rules
+    url: rules/university-of-york-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-york-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

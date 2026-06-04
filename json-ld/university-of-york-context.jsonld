@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "york": "https://www.york.ac.uk/ns/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "schema": "https://schema.org/",
+    "University": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "Repository": "schema:DataCatalog",
+    "ScholarlyWork": "schema:CreativeWork",
+    "Thesis": "schema:Thesis",
+    "ScholarlyArticle": "schema:ScholarlyArticle",
+    "identifier": "schema:identifier",
+    "datestamp": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
+    "title": "dc:title",
+    "creator": { "@id": "dc:creator", "@container": "@set" },
+    "subject": { "@id": "dc:subject", "@container": "@set" },
+    "abstract": "dc:description",
+    "relation": { "@id": "dc:relation", "@type": "@id" },
+    "baseURL": { "@id": "oai:baseURL", "@type": "@id" },
+    "metadataPrefix": "oai:metadataPrefix",
+    "setSpec": { "@id": "oai:setSpec", "@container": "@set" }
+  },
+  "@type": "University",
+  "name": "University of York",
+  "url": "https://www.york.ac.uk/",
+  "york:repository": [
+    {
+      "@type": "Repository",
+      "name": "White Rose Research Online",
+      "url": "https://eprints.whiterose.ac.uk/about.html",
+      "baseURL": "https://eprints.whiterose.ac.uk/cgi/oai2"
+    },
+    {
+      "@type": "Repository",
+      "name": "White Rose eTheses Online",
+      "url": "https://etheses.whiterose.ac.uk/",
+      "baseURL": "https://etheses.whiterose.ac.uk/cgi/oai2"
+    }
+  ]
+}

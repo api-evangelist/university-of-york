@@ -1,0 +1,55 @@
+extends: []
+formats:
+  - oas3
+documentationUrl: https://eprints.whiterose.ac.uk/about.html
+rules:
+  oai-info-title-present:
+    description: API must declare a title.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  oai-info-version-present:
+    description: API must declare a version.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  oai-contact-email-present:
+    description: Repository contact email should be published (OAI-PMH adminEmail convention).
+    severity: warn
+    given: $.info.contact
+    then:
+      field: email
+      function: truthy
+  oai-single-endpoint:
+    description: OAI-PMH repositories expose a single base URL; only the /oai2 path is expected.
+    severity: warn
+    given: $.paths
+    then:
+      function: length
+      functionOptions:
+        max: 1
+  oai-verb-parameter-required:
+    description: Every operation must require the OAI-PMH 'verb' query parameter.
+    severity: error
+    given: $.paths[*].get.parameters[?(@.name=='verb')]
+    then:
+      field: required
+      function: truthy
+  oai-verb-enum-complete:
+    description: The verb parameter should enumerate the six OAI-PMH 2.0 verbs.
+    severity: warn
+    given: $.paths[*].get.parameters[?(@.name=='verb')].schema
+    then:
+      field: enum
+      function: truthy
+  oai-xml-response-media-type:
+    description: OAI-PMH responses are XML; the 200 response should declare application/xml.
+    severity: warn
+    given: $.paths[*].get.responses['200'].content
+    then:
+      field: application/xml
+      function: truthy
