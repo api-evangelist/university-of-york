@@ -81,6 +81,8 @@ apis:
       - type: Documentation
         url: https://www.york.ac.uk/library/resources/yorsearch-help/
 common:
+  - type: DomainSecurity
+    url: security/university-of-york-domain-security.yml
   - type: Website
     url: https://www.york.ac.uk/
   - type: GitHub
