@@ -12,9 +12,21 @@ description: >-
   maintains a verified GitHub organization focused on internal faculty/IT engineering
   tooling rather than externally published APIs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-york.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-york/refs/heads/main/apis.yml
 tags:
   - Education
@@ -29,57 +41,45 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: university-of-york:white-rose-research-oai
-    name: White Rose Research Online (OAI-PMH)
-    description: >-
-      OAI-PMH 2.0 metadata harvesting interface for White Rose Research Online, the
-      shared EPrints institutional repository of the Universities of York, Leeds and
-      Sheffield. Exposes harvestable metadata for research outputs deposited by
-      University of York authors. Confirmed live (HTTP 200) returning a valid Identify
-      response.
-    humanURL: https://eprints.whiterose.ac.uk/about.html
-    baseURL: https://eprints.whiterose.ac.uk/cgi/oai2
-    tags: [ Research, Open Access, OAI-PMH, Repository, Library, Metadata ]
-    properties:
-      - type: Documentation
-        url: https://eprints.whiterose.ac.uk/about.html
-      - type: OpenAPI
-        url: openapi/university-of-york-white-rose-research-oai.yaml
-      - type: x-json-schema
-        url: json-schema/university-of-york-oai-record-schema.json
-      - type: x-example
-        url: examples/university-of-york-getrecord-example.json
-  - aid: university-of-york:white-rose-etheses-oai
-    name: White Rose eTheses Online (OAI-PMH)
-    description: >-
-      OAI-PMH 2.0 metadata harvesting interface for White Rose eTheses Online, the
-      shared EPrints theses repository for the Universities of York, Leeds and
-      Sheffield. Confirmed live (HTTP 200) returning a valid Identify response;
-      metadata policy is noted as not yet fully configured at the endpoint.
-    humanURL: https://etheses.whiterose.ac.uk/
-    baseURL: https://etheses.whiterose.ac.uk/cgi/oai2
-    tags: [ Research, Theses, Open Access, OAI-PMH, Repository, Metadata ]
-    properties:
-      - type: Documentation
-        url: https://etheses.whiterose.ac.uk/
-      - type: OpenAPI
-        url: openapi/university-of-york-white-rose-etheses-oai.yaml
-      - type: x-example
-        url: examples/university-of-york-identify-example.json
-  - aid: university-of-york:yorsearch-primo
-    name: YorSearch Library Discovery (Ex Libris Primo)
-    description: >-
-      YorSearch is the University of York library discovery service, built on the Ex
-      Libris Primo platform with an Alma library services backend (view id
-      44YORK-NUI). Primo exposes programmatic discovery via its REST and PNX/X-Services
-      interfaces; access is not openly documented by the university and typically
-      requires institutional credentials or an Ex Libris API key. The discovery UI is
-      confirmed live (HTTP 200).
-    humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
-    tags: [ Library, Discovery, Primo, Alma, Ex Libris, Catalogue ]
-    properties:
-      - type: Documentation
-        url: https://www.york.ac.uk/library/resources/yorsearch-help/
+- aid: university-of-york:yorsearch-primo
+  name: YorSearch Library Discovery (Ex Libris Primo)
+  description: >-
+    YorSearch is the University of York library discovery service, built on the Ex Libris Primo platform
+    with an Alma library services backend (view id 44YORK-NUI). Primo exposes programmatic discovery via
+    its REST and PNX/X-Services interfaces; access is not openly documented by the university and typically
+    requires institutional credentials or an Ex Libris API key. The discovery UI is confirmed live (HTTP
+    200).
+  humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
+  tags:
+  - Library
+  - Discovery
+  - Primo
+  - Alma
+  - Ex Libris
+  - Catalogue
+  properties:
+  - type: Documentation
+    url: https://www.york.ac.uk/library/resources/yorsearch-help/
+- aid: university-of-york:university-of-york-oai2-api
+  name: University of York Oai2 API
+  description: The Oai2 API from University of York — 1 operation(s) for oai2.
+  humanURL: https://eprints.whiterose.ac.uk/about.html
+  baseURL: https://eprints.whiterose.ac.uk/cgi/oai2
+  tags:
+  - Oai2
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-york-oai2-api-openapi.yml
+  - type: Documentation
+    url: https://eprints.whiterose.ac.uk/about.html
+  - type: x-json-schema
+    url: json-schema/university-of-york-oai-record-schema.json
+  - type: x-example
+    url: examples/university-of-york-getrecord-example.json
+  - type: Documentation
+    url: https://etheses.whiterose.ac.uk/
+  - type: x-example
+    url: examples/university-of-york-identify-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/university-of-york-agentic-access.yml
