@@ -1,0 +1,14 @@
+{
+  "provider": "university-of-york",
+  "sources": [
+    "university-of-york-oai2-api-openapi.yml"
+  ],
+  "outputs": [
+    "university-of-york-oai2-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

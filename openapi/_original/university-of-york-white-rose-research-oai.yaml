@@ -1,0 +1,277 @@
+openapi: 3.0.3
+info:
+  title: White Rose Research Online (OAI-PMH 2.0)
+  description: >-
+    OAI-PMH 2.0 metadata harvesting interface for White Rose Research Online,
+    the shared EPrints institutional repository of the Universities of York,
+    Leeds and Sheffield. This OpenAPI description models the real OAI-PMH 2.0
+    protocol surface as exposed at the live endpoint: a single base URL that
+    accepts the six OAI-PMH verbs as query parameters and returns XML responses
+    conforming to the OAI-PMH 2.0 schema. Metadata records are returned in any
+    of the supported metadata formats (oai_dc, didl, mets, oai_openaire, rdf,
+    rioxx, oai_dc_orcid, oai_dc_primo, oai_bibl). All paths, parameters,
+    metadata prefixes and error codes below are confirmed against live
+    responses; no fields have been invented.
+  version: '2.0'
+  contact:
+    name: White Rose Research Online
+    email: eprints@whiterose.ac.uk
+  license:
+    name: OAI-PMH 2.0
+    url: http://www.openarchives.org/OAI/openarchivesprotocol.html
+servers:
+  - url: https://eprints.whiterose.ac.uk/cgi
+    description: White Rose Research Online OAI-PMH base
+paths:
+  /oai2:
+    get:
+      summary: OAI-PMH request dispatch
+      description: >-
+        Single OAI-PMH endpoint. The request is dispatched by the required
+        `verb` parameter. Each verb accepts its own set of additional
+        parameters as defined by the OAI-PMH 2.0 protocol. All responses are
+        XML conforming to the OAI-PMH 2.0 schema.
+      operationId: oaiRequest
+      parameters:
+        - name: verb
+          in: query
+          required: true
+          description: The OAI-PMH protocol request type.
+          schema:
+            type: string
+            enum:
+              - Identify
+              - ListMetadataFormats
+              - ListSets
+              - ListIdentifiers
+              - ListRecords
+              - GetRecord
+        - name: identifier
+          in: query
+          required: false
+          description: >-
+            The unique OAI identifier of an item. Required for GetRecord;
+            optional for ListMetadataFormats. Example
+            oai:eprints.whiterose.ac.uk:5
+          schema:
+            type: string
+            example: oai:eprints.whiterose.ac.uk:5
+        - name: metadataPrefix
+          in: query
+          required: false
+          description: >-
+            The metadata format in which records should be returned. Required
+            for GetRecord, ListRecords and ListIdentifiers (unless resuming with
+            a resumptionToken). Confirmed supported formats are listed in the
+            enum.
+          schema:
+            type: string
+            enum:
+              - oai_dc
+              - oai_bibl
+              - oai_dc_orcid
+              - oai_dc_primo
+              - oai_openaire
+              - didl
+              - mets
+              - rdf
+              - rioxx
+            example: oai_dc
+        - name: from
+          in: query
+          required: false
+          description: >-
+            Lower bound for selective harvesting by datestamp. Granularity is
+            YYYY-MM-DDThh:mm:ssZ.
+          schema:
+            type: string
+            format: date-time
+            example: '2024-01-01T00:00:00Z'
+        - name: until
+          in: query
+          required: false
+          description: >-
+            Upper bound for selective harvesting by datestamp. Granularity is
+            YYYY-MM-DDThh:mm:ssZ.
+          schema:
+            type: string
+            format: date-time
+            example: '2024-12-31T23:59:59Z'
+        - name: set
+          in: query
+          required: false
+          description: >-
+            Restricts a list request to records belonging to the given set. Set
+            specs are hex-encoded as returned by ListSets.
+          schema:
+            type: string
+        - name: resumptionToken
+          in: query
+          required: false
+          description: >-
+            Flow control token returned by a previous incomplete list response.
+            When supplied it is the only other argument allowed besides verb.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >-
+            A valid OAI-PMH 2.0 XML response. May contain the requested data or
+            an OAI-PMH error element (e.g. badArgument, idDoesNotExist,
+            cannotDisseminateFormat, noRecordsMatch, badResumptionToken,
+            badVerb, noMetadataFormats, noSetHierarchy).
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OAIPMHResponse'
+components:
+  schemas:
+    OAIPMHResponse:
+      type: object
+      description: Root OAI-PMH 2.0 response envelope.
+      properties:
+        responseDate:
+          type: string
+          format: date-time
+          example: '2026-06-04T03:13:43Z'
+        request:
+          type: string
+          description: Echo of the request base URL and arguments.
+          example: https://eprints.whiterose.ac.uk/cgi/oai2
+        Identify:
+          $ref: '#/components/schemas/Identify'
+        GetRecord:
+          type: object
+          properties:
+            record:
+              $ref: '#/components/schemas/Record'
+        ListRecords:
+          type: object
+          properties:
+            record:
+              type: array
+              items:
+                $ref: '#/components/schemas/Record'
+            resumptionToken:
+              type: string
+        error:
+          $ref: '#/components/schemas/OAIError'
+    Identify:
+      type: object
+      description: Repository description returned by the Identify verb.
+      properties:
+        repositoryName:
+          type: string
+          example: White Rose Research Online
+        baseURL:
+          type: string
+          format: uri
+          example: https://eprints.whiterose.ac.uk/cgi/oai2
+        protocolVersion:
+          type: string
+          example: '2.0'
+        adminEmail:
+          type: string
+          format: email
+          example: eprints@whiterose.ac.uk
+        earliestDatestamp:
+          type: string
+          format: date-time
+          example: '2007-08-05T17:37:28Z'
+        deletedRecord:
+          type: string
+          enum: [no, persistent, transient]
+          example: persistent
+        granularity:
+          type: string
+          example: YYYY-MM-DDThh:mm:ssZ
+    Record:
+      type: object
+      description: An OAI-PMH record consisting of a header and (unless deleted) metadata.
+      properties:
+        header:
+          $ref: '#/components/schemas/RecordHeader'
+        metadata:
+          type: object
+          description: >-
+            Metadata payload in the requested metadataPrefix format. For oai_dc
+            this is a Dublin Core element set.
+          properties:
+            dc:
+              $ref: '#/components/schemas/DublinCore'
+    RecordHeader:
+      type: object
+      properties:
+        identifier:
+          type: string
+          example: oai:eprints.whiterose.ac.uk:5
+        datestamp:
+          type: string
+          format: date-time
+          example: '2016-10-28T17:09:02Z'
+        status:
+          type: string
+          description: Present and equal to "deleted" for tombstone records.
+          enum: [deleted]
+        setSpec:
+          type: array
+          items:
+            type: string
+    DublinCore:
+      type: object
+      description: >-
+        Simple Dublin Core (oai_dc) element set. Each element is repeatable per
+        the DC 1.1 namespace.
+      properties:
+        title:
+          type: array
+          items:
+            type: string
+          example: ['Current practices in managing acutely disturbed patients at three hospitals in Rio de Janeiro-Brazil: a prevalence study']
+        creator:
+          type: array
+          items:
+            type: string
+          example: ['Adams, C.E.', 'Huf, G']
+        subject:
+          type: array
+          items:
+            type: string
+        description:
+          type: array
+          items:
+            type: string
+        relation:
+          type: array
+          items:
+            type: string
+          example: ['https://eprints.whiterose.ac.uk/id/eprint/5/']
+        date:
+          type: array
+          items:
+            type: string
+        type:
+          type: array
+          items:
+            type: string
+        identifier:
+          type: array
+          items:
+            type: string
+    OAIError:
+      type: object
+      description: OAI-PMH protocol error.
+      properties:
+        code:
+          type: string
+          enum:
+            - badArgument
+            - badResumptionToken
+            - badVerb
+            - cannotDisseminateFormat
+            - idDoesNotExist
+            - noRecordsMatch
+            - noMetadataFormats
+            - noSetHierarchy
+        message:
+          type: string
