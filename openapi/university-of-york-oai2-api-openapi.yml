@@ -1,17 +1,16 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: White Rose eTheses Online (OAI-PMH 2.0) Oai2 API
-  description: 'OAI-PMH 2.0 metadata harvesting interface for White Rose eTheses Online, the shared EPrints theses repository for the Universities of York, Leeds and Sheffield. This OpenAPI description models the real OAI-PMH 2.0 protocol surface confirmed live at the endpoint: a single base URL accepting the six OAI-PMH verbs as query parameters and returning OAI-PMH 2.0 XML. The Identify response is confirmed (repositoryName "White Rose eTheses Online", protocolVersion 2.0, deletedRecord persistent, granularity YYYY-MM-DDThh:mm:ssZ). All paths, parameters and error codes below are standard OAI-PMH 2.0; nothing has been fabricated.'
+  title: University Of York Oai2 API
   version: '2.0'
-  contact:
-    name: White Rose eTheses Online
-    email: etheses@whiterose.ac.uk
   license:
     name: OAI-PMH 2.0
     url: http://www.openarchives.org/OAI/openarchivesprotocol.html
+  description: 'Operations tagged Oai2 across 2 of this provider''s published API definitions: university-of-york-white-rose-etheses-oai.yaml, university-of-york-white-rose-research-oai.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://etheses.whiterose.ac.uk/cgi
   description: White Rose eTheses Online OAI-PMH base
+- url: https://eprints.whiterose.ac.uk/cgi
+  description: White Rose Research Online OAI-PMH base
 tags:
 - name: Oai2
 paths:
@@ -85,8 +84,88 @@ paths:
                 $ref: '#/components/schemas/OAIPMHResponse'
       tags:
       - Oai2
+    servers:
+    - url: https://etheses.whiterose.ac.uk/cgi
+      description: White Rose eTheses Online OAI-PMH base
 components:
   schemas:
+    RecordHeader:
+      type: object
+      properties:
+        identifier:
+          type: string
+          example: oai:etheses.whiterose.ac.uk:411
+        datestamp:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum:
+          - deleted
+        setSpec:
+          type: array
+          items:
+            type: string
+    Identify:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+          example: White Rose eTheses Online
+        baseURL:
+          type: string
+          format: uri
+          example: https://etheses.whiterose.ac.uk/cgi/oai2
+        protocolVersion:
+          type: string
+          example: '2.0'
+        adminEmail:
+          type: string
+          format: email
+          example: etheses@whiterose.ac.uk
+        earliestDatestamp:
+          type: string
+          format: date-time
+          example: '2010-02-12T15:42:31Z'
+        deletedRecord:
+          type: string
+          enum:
+          - false
+          - persistent
+          - transient
+          example: persistent
+        granularity:
+          type: string
+          example: YYYY-MM-DDThh:mm:ssZ
+    OAIPMHResponse:
+      type: object
+      description: Root OAI-PMH 2.0 response envelope.
+      properties:
+        responseDate:
+          type: string
+          format: date-time
+          example: '2026-06-04T03:12:55Z'
+        request:
+          type: string
+          example: https://etheses.whiterose.ac.uk/cgi/oai2
+        Identify:
+          $ref: '#/components/schemas/Identify'
+        GetRecord:
+          type: object
+          properties:
+            record:
+              $ref: '#/components/schemas/Record'
+        ListRecords:
+          type: object
+          properties:
+            record:
+              type: array
+              items:
+                $ref: '#/components/schemas/Record'
+            resumptionToken:
+              type: string
+        error:
+          $ref: '#/components/schemas/OAIError'
     OAIError:
       type: object
       properties:
@@ -149,27 +228,47 @@ components:
           properties:
             dc:
               $ref: '#/components/schemas/DublinCore'
-    Identify:
+    RecordHeader_2:
       type: object
+      properties:
+        identifier:
+          type: string
+          example: oai:eprints.whiterose.ac.uk:5
+        datestamp:
+          type: string
+          format: date-time
+          example: '2016-10-28T17:09:02Z'
+        status:
+          type: string
+          description: Present and equal to "deleted" for tombstone records.
+          enum:
+          - deleted
+        setSpec:
+          type: array
+          items:
+            type: string
+    Identify_2:
+      type: object
+      description: Repository description returned by the Identify verb.
       properties:
         repositoryName:
           type: string
-          example: White Rose eTheses Online
+          example: White Rose Research Online
         baseURL:
           type: string
           format: uri
-          example: https://etheses.whiterose.ac.uk/cgi/oai2
+          example: https://eprints.whiterose.ac.uk/cgi/oai2
         protocolVersion:
           type: string
           example: '2.0'
         adminEmail:
           type: string
           format: email
-          example: etheses@whiterose.ac.uk
+          example: eprints@whiterose.ac.uk
         earliestDatestamp:
           type: string
           format: date-time
-          example: '2010-02-12T15:42:31Z'
+          example: '2007-08-05T17:37:28Z'
         deletedRecord:
           type: string
           enum:
@@ -180,49 +279,108 @@ components:
         granularity:
           type: string
           example: YYYY-MM-DDThh:mm:ssZ
-    RecordHeader:
-      type: object
-      properties:
-        identifier:
-          type: string
-          example: oai:etheses.whiterose.ac.uk:411
-        datestamp:
-          type: string
-          format: date-time
-        status:
-          type: string
-          enum:
-          - deleted
-        setSpec:
-          type: array
-          items:
-            type: string
-    OAIPMHResponse:
+    OAIPMHResponse_2:
       type: object
       description: Root OAI-PMH 2.0 response envelope.
       properties:
         responseDate:
           type: string
           format: date-time
-          example: '2026-06-04T03:12:55Z'
+          example: '2026-06-04T03:13:43Z'
         request:
           type: string
-          example: https://etheses.whiterose.ac.uk/cgi/oai2
+          description: Echo of the request base URL and arguments.
+          example: https://eprints.whiterose.ac.uk/cgi/oai2
         Identify:
-          $ref: '#/components/schemas/Identify'
+          $ref: '#/components/schemas/Identify_2'
         GetRecord:
           type: object
           properties:
             record:
-              $ref: '#/components/schemas/Record'
+              $ref: '#/components/schemas/Record_2'
         ListRecords:
           type: object
           properties:
             record:
               type: array
               items:
-                $ref: '#/components/schemas/Record'
+                $ref: '#/components/schemas/Record_2'
             resumptionToken:
               type: string
         error:
-          $ref: '#/components/schemas/OAIError'
+          $ref: '#/components/schemas/OAIError_2'
+    OAIError_2:
+      type: object
+      description: OAI-PMH protocol error.
+      properties:
+        code:
+          type: string
+          enum:
+          - badArgument
+          - badResumptionToken
+          - badVerb
+          - cannotDisseminateFormat
+          - idDoesNotExist
+          - noRecordsMatch
+          - noMetadataFormats
+          - noSetHierarchy
+        message:
+          type: string
+    DublinCore_2:
+      type: object
+      description: Simple Dublin Core (oai_dc) element set. Each element is repeatable per the DC 1.1 namespace.
+      properties:
+        title:
+          type: array
+          items:
+            type: string
+          example:
+          - 'Current practices in managing acutely disturbed patients at three hospitals in Rio de Janeiro-Brazil: a prevalence study'
+        creator:
+          type: array
+          items:
+            type: string
+          example:
+          - Adams, C.E.
+          - Huf, G
+        subject:
+          type: array
+          items:
+            type: string
+        description:
+          type: array
+          items:
+            type: string
+        relation:
+          type: array
+          items:
+            type: string
+          example:
+          - https://eprints.whiterose.ac.uk/id/eprint/5/
+        date:
+          type: array
+          items:
+            type: string
+        type:
+          type: array
+          items:
+            type: string
+        identifier:
+          type: array
+          items:
+            type: string
+    Record_2:
+      type: object
+      description: An OAI-PMH record consisting of a header and (unless deleted) metadata.
+      properties:
+        header:
+          $ref: '#/components/schemas/RecordHeader_2'
+        metadata:
+          type: object
+          description: Metadata payload in the requested metadataPrefix format. For oai_dc this is a Dublin Core element set.
+          properties:
+            dc:
+              $ref: '#/components/schemas/DublinCore_2'
+x-refined-from:
+- university-of-york-white-rose-etheses-oai.yaml
+- university-of-york-white-rose-research-oai.yaml
