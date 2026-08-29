@@ -93,6 +93,9 @@ apis:
   - type: x-example
     url: examples/university-of-york-identify-example.json
 common:
+  - type: CapabilityMap
+    url: capabilities/university-of-york-capability-edges.yml
+    name: University of York Business Capability Map
   - type: AgenticAccess
     url: agentic-access/university-of-york-agentic-access.yml
   - type: DomainSecurity

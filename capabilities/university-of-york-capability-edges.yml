@@ -1,0 +1,26 @@
+slug: university-of-york
+provider: University of York
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Oai2
+  spec_file: university-of-york-oai2-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.75
+  evidence: published from 'university-of-york-white-rose-etheses-oai.yaml, university-of-york-white-rose-research-oai.yaml';
+    GET /oai2 'OAI-PMH request dispatch'; schemas DublinCore, Record, RecordHeader
+  reason: OAI-PMH harvesting over the White Rose eTheses and research repositories exposes metadata for
+    the institution's scholarly output — publication/repository stewardship. Confidence held below 0.9
+    because the operation itself is a generic protocol dispatch endpoint.
