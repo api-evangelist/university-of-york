@@ -230,6 +230,13 @@ apis:
     tags:
       - IIIF
       - Digital Collections
+      - Image
+      - Cultural Heritage
+      - Archives
+      - JSON-LD
+    tags_raw:
+      - IIIF
+      - Digital Collections
       - Images
       - Cultural Heritage
       - Archives
