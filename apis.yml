@@ -20,7 +20,7 @@ description: >-
   recorded here as tenant relationships, which they are, and not as York engineering, which they
   are not.
 type: Index
-position: Producer
+position: Producing
 access: Public
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-york.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-york/refs/heads/main/apis.yml
