@@ -179,230 +179,264 @@ x-attribution-correction:
     Removing a consortium contract and adding three verified first-party ones changes what is being
     measured, not just how much of it there is. A correction that lowers a score is a success.
 apis:
-  - aid: university-of-york:digital-collections-search
-    name: University of York Digital Collections Search API
-    x-operator: institution
-    description: >-
-      The keyless JSON search interface behind discover.york.ac.uk, the University of York's
-      Digital Collections. Two live endpoints — /api/search-simple, which the public search page
-      calls, and /api/search, which returns a different aggregation set — query an Elasticsearch
-      index of 415,165 records drawn from the University Library, the Borthwick Institute for
-      Archives and cultural-heritage partners. Faceted by creator, type, work type, collection and
-      by collection-specific families for the York Cause Papers and archival records. No key, no
-      registration, CORS open to any origin. York publishes no documentation for it; this contract
-      was written from live probes and from the request construction in the site's own JavaScript.
-    humanURL: https://discover.york.ac.uk/
-    baseURL: https://discover.york.ac.uk
-    tags:
-      - Digital Collections
-      - Search
-      - Archives
-      - Cultural Heritage
-      - Open Access
-    properties:
-      - type: OpenAPI
-        url: openapi/university-of-york-digital-collections-search-openapi.yml
-      - type: Documentation
-        url: https://discover.york.ac.uk/about/
-      - type: x-json-schema
-        url: json-schema/university-of-york-digital-collections-item-schema.json
-      - type: x-example
-        url: examples/university-of-york-digital-collections-search-example.json
-      - type: x-authentication
-        url: authentication/university-of-york-authentication.yml
-      - type: x-errors
-        url: errors/university-of-york-errors.yml
-      - type: x-lifecycle
-        url: lifecycle/university-of-york-lifecycle.yml
-  - aid: university-of-york:digital-collections-iiif
-    name: University of York Digital Collections IIIF APIs
-    x-operator: institution
-    description: >-
-      The University of York serves its digitised material through two IIIF specifications on its
-      own host: IIIF Image API 3.0 at compliance level 2 (the served info.json declares
-      "profile": "level2", "type": "ImageService3" and its own extraFeatures, extraFormats and
-      extraQualities), and IIIF Presentation API 3.0 manifests and canvases. Identifiers are ARKs
-      under the University's Name Assigning Authority Number 36941. Keyless and CORS open. The
-      IIIF Collection endpoint is not deployed, so there is no machine-readable entry point that
-      enumerates the collections — a harvester has to start from the search API.
-    humanURL: https://discover.york.ac.uk/collections/
-    baseURL: https://discover.york.ac.uk
-    tags:
-      - IIIF
-      - Digital Collections
-      - Image
-      - Cultural Heritage
-      - Archives
-      - JSON-LD
-    tags_raw:
-      - IIIF
-      - Digital Collections
-      - Images
-      - Cultural Heritage
-      - Archives
-      - JSON-LD
-    properties:
-      - type: OpenAPI
-        url: openapi/university-of-york-digital-collections-iiif-openapi.yml
-      - type: Documentation
-        url: https://discover.york.ac.uk/about/
-      - type: x-json-schema
-        url: json-schema/university-of-york-iiif-image-info-schema.json
-      - type: x-example
-        url: examples/university-of-york-iiif-image-info-example.json
-      - type: x-example
-        url: examples/university-of-york-iiif-presentation-manifest-example.json
-      - type: Conformance
-        url: conformance/university-of-york-conformance.yml
-      - type: x-errors
-        url: errors/university-of-york-errors.yml
-  - aid: university-of-york:research-portal-oai-pmh
-    name: University of York Research Portal OAI-PMH
-    x-operator: institution
-    description: >-
-      OAI-PMH 2.0 harvesting on the University's own registrable domain. The Identify response
-      names the repository "The University of York", gives adminEmail pure-support@york.ac.uk and
-      an earliest datestamp of 2014-10-14. All six verbs are live. Five metadata formats are
-      served — mods, xmetadiss, nl_didl, oai_dc and qdc — and the MODS records carry typed ORCID
-      iDs and DOIs. Sets cover persons, publications, publications with files, and publications by
-      year. The deletedRecord policy is "no", so incremental harvesting cannot detect withdrawals.
-      The underlying product is Elsevier Pure; its proprietary REST API is a separate, tenant
-      surface and its contract is deliberately not saved here.
-    humanURL: https://pure.york.ac.uk/portal/
-    baseURL: https://pure.york.ac.uk/ws/oai
-    tags:
-      - OAI-PMH
-      - Research Data
-      - Open Access
-      - ORCID
-      - Metadata Harvesting
-    properties:
-      - type: OpenAPI
-        url: openapi/university-of-york-research-portal-oai-pmh-openapi.yml
-      - type: x-example
-        url: examples/university-of-york-oai-pmh-identify-example.xml
-      - type: x-example
-        url: examples/university-of-york-oai-pmh-getrecord-example.xml
-      - type: Conformance
-        url: conformance/university-of-york-conformance.yml
-      - type: Portal
-        url: https://pure.york.ac.uk/portal/
-  - aid: university-of-york:shibboleth-idp
-    name: University of York Shibboleth Identity Provider
-    x-operator: institution
-    description: >-
-      The University's own SAML 2.0 identity provider at shib.york.ac.uk, running Shibboleth. It is
-      the authentication surface through which every bought platform — Pure, Primo, the VLE — is
-      actually reached, and it is institution-operated by definition. Confirmed by behaviour: the
-      SAML2 HTTP-Redirect SSO profile endpoint answers, and the IdP status handler is present but
-      access-restricted. Its SAML metadata is NOT published from a University host; it is
-      distributed through the UK Access Management Federation, so no machine-readable artifact
-      could be retrieved and none has been invented. Recorded as a surface, not as a contract.
-    humanURL: https://www.york.ac.uk/it-services/
-    baseURL: https://shib.york.ac.uk/idp
-    tags:
-      - Identity Federation
-      - Shibboleth
-      - SAML
-      - Single Sign-On
-    properties:
-      - type: Conformance
-        url: conformance/university-of-york-conformance.yml
-      - type: Documentation
-        url: https://www.york.ac.uk/it-services/
-  - aid: university-of-york:pure-web-services
-    name: Elsevier Pure Web Services (University of York tenant)
-    x-operator: tenant
-    description: >-
-      The Elsevier Pure REST Web Service running on the University of York's tenant host. The
-      documentation index answers without a key and the versioned API serves a 1.1 MB OpenAPI
-      document, but the API itself returns 401 to an unauthenticated caller and keys are issued by
-      the institution's Pure administrators rather than self-service. This is York's research
-      information — and Elsevier's contract. The vendor specification is deliberately NOT saved
-      under this institution's slug; that misattribution is exactly what this pipeline exists to
-      prevent. What IS saved is the OAI-PMH surface above, which is protocol-standard and
-      self-identifies as the University of York.
-    humanURL: https://pure.york.ac.uk/portal/
-    baseURL: https://pure.york.ac.uk/ws/api
-    tags:
-      - Research Information
-      - CRIS
-      - Elsevier Pure
-      - Tenant
-    properties:
-      - type: Documentation
-        url: https://pure.york.ac.uk/ws/api/documentation/index.html
-      - type: Portal
-        url: https://pure.york.ac.uk/portal/
-  - aid: university-of-york:yorsearch-primo
-    name: YorSearch Library Discovery (Ex Libris Primo / Alma)
-    x-operator: tenant
-    description: >-
-      YorSearch is the University of York library discovery service, an Ex Libris Primo front end
-      over an Alma backend (view id 44YORK_INST:NUI). The discovery UI is live on a York host, but
-      programmatic access runs through Ex Libris's own gateway at api-eu.hosted.exlibrisgroup.com
-      and requires an Ex Libris key. York's catalogue, Ex Libris's contract — recorded as a tenant
-      relationship, not as York engineering.
-    humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
-    baseURL: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
-    tags:
-      - Library
-      - Discovery
-      - Primo
-      - Alma
-      - Ex Libris
-      - Tenant
-    properties:
-      - type: Documentation
-        url: https://www.york.ac.uk/library/resources/yorsearch-help/
-      - type: Portal
-        url: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
-  - aid: university-of-york:wrro-oai
-    name: White Rose Research Online OAI-PMH (consortium)
-    x-operator: tenant
-    description: >-
-      White Rose Research Online is the shared EPrints institutional repository of the Universities
-      of York, Leeds and Sheffield, on the consortium's own whiterose.ac.uk domain. Its OAI-PMH 2.0
-      interface is live and harvests York research outputs alongside those of the other two
-      members. York co-owns the deployment; EPrints wrote the protocol implementation and the
-      consortium, not York, operates the host. The 2026-06-03 profile saved this contract under
-      York's slug; it has been removed and the relationship recorded here instead.
-    humanURL: https://eprints.whiterose.ac.uk/
-    baseURL: https://eprints.whiterose.ac.uk/cgi/oai2
-    tags:
-      - Research Repository
-      - OAI-PMH
-      - EPrints
-      - Open Access
-      - Consortium
-      - Tenant
-    properties:
-      - type: Portal
-        url: https://eprints.whiterose.ac.uk/
-      - type: Documentation
-        url: https://eprints.whiterose.ac.uk/information.html
-  - aid: university-of-york:wreo-oai
-    name: White Rose eTheses Online OAI-PMH (consortium)
-    x-operator: tenant
-    description: >-
-      White Rose eTheses Online is the shared EPrints theses repository of York, Leeds and
-      Sheffield, running on the consortium's own domain. Its OAI-PMH 2.0 interface Identifies as
-      "White Rose eTheses Online" and harvests University of York thesis metadata. Consortium-
-      operated on vendor software; recorded as a tenant relationship rather than as a York
-      contract.
-    humanURL: https://etheses.whiterose.ac.uk/
-    baseURL: https://etheses.whiterose.ac.uk/cgi/oai2
-    tags:
-      - Research Repository
-      - OAI-PMH
-      - EPrints
-      - Theses
-      - Open Access
-      - Consortium
-      - Tenant
-    properties:
-      - type: Portal
-        url: https://etheses.whiterose.ac.uk/
+- aid: university-of-york:shibboleth-idp
+  name: University of York Shibboleth Identity Provider
+  x-operator: institution
+  description: >-
+    The University's own SAML 2.0 identity provider at shib.york.ac.uk, running Shibboleth. It is the
+    authentication surface through which every bought platform — Pure, Primo, the VLE — is actually reached,
+    and it is institution-operated by definition. Confirmed by behaviour: the SAML2 HTTP-Redirect SSO
+    profile endpoint answers, and the IdP status handler is present but access-restricted. Its SAML metadata
+    is NOT published from a University host; it is distributed through the UK Access Management Federation,
+    so no machine-readable artifact could be retrieved and none has been invented. Recorded as a surface,
+    not as a contract.
+  humanURL: https://www.york.ac.uk/it-services/
+  baseURL: https://shib.york.ac.uk/idp
+  tags:
+  - Identity Federation
+  - Shibboleth
+  - SAML
+  - Single Sign-On
+  properties:
+  - type: Conformance
+    url: conformance/university-of-york-conformance.yml
+  - type: Documentation
+    url: https://www.york.ac.uk/it-services/
+- aid: university-of-york:pure-web-services
+  name: Elsevier Pure Web Services (University of York tenant)
+  x-operator: tenant
+  description: >-
+    The Elsevier Pure REST Web Service running on the University of York's tenant host. The documentation
+    index answers without a key and the versioned API serves a 1.1 MB OpenAPI document, but the API itself
+    returns 401 to an unauthenticated caller and keys are issued by the institution's Pure administrators
+    rather than self-service. This is York's research information — and Elsevier's contract. The vendor
+    specification is deliberately NOT saved under this institution's slug; that misattribution is exactly
+    what this pipeline exists to prevent. What IS saved is the OAI-PMH surface above, which is protocol-standard
+    and self-identifies as the University of York.
+  humanURL: https://pure.york.ac.uk/portal/
+  baseURL: https://pure.york.ac.uk/ws/api
+  tags:
+  - Research Information
+  - CRIS
+  - Elsevier Pure
+  - Tenant
+  properties:
+  - type: Documentation
+    url: https://pure.york.ac.uk/ws/api/documentation/index.html
+  - type: Portal
+    url: https://pure.york.ac.uk/portal/
+- aid: university-of-york:yorsearch-primo
+  name: YorSearch Library Discovery (Ex Libris Primo / Alma)
+  x-operator: tenant
+  description: >-
+    YorSearch is the University of York library discovery service, an Ex Libris Primo front end over an
+    Alma backend (view id 44YORK_INST:NUI). The discovery UI is live on a York host, but programmatic
+    access runs through Ex Libris's own gateway at api-eu.hosted.exlibrisgroup.com and requires an Ex
+    Libris key. York's catalogue, Ex Libris's contract — recorded as a tenant relationship, not as York
+    engineering.
+  humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
+  baseURL: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
+  tags:
+  - Library
+  - Discovery
+  - Primo
+  - Alma
+  - Ex Libris
+  - Tenant
+  properties:
+  - type: Documentation
+    url: https://www.york.ac.uk/library/resources/yorsearch-help/
+  - type: Portal
+    url: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
+- aid: university-of-york:wrro-oai
+  name: White Rose Research Online OAI-PMH (consortium)
+  x-operator: tenant
+  description: >-
+    White Rose Research Online is the shared EPrints institutional repository of the Universities of York,
+    Leeds and Sheffield, on the consortium's own whiterose.ac.uk domain. Its OAI-PMH 2.0 interface is
+    live and harvests York research outputs alongside those of the other two members. York co-owns the
+    deployment; EPrints wrote the protocol implementation and the consortium, not York, operates the host.
+    The 2026-06-03 profile saved this contract under York's slug; it has been removed and the relationship
+    recorded here instead.
+  humanURL: https://eprints.whiterose.ac.uk/
+  baseURL: https://eprints.whiterose.ac.uk/cgi/oai2
+  tags:
+  - Research Repository
+  - OAI-PMH
+  - EPrints
+  - Open Access
+  - Consortium
+  - Tenant
+  properties:
+  - type: Portal
+    url: https://eprints.whiterose.ac.uk/
+  - type: Documentation
+    url: https://eprints.whiterose.ac.uk/information.html
+- aid: university-of-york:wreo-oai
+  name: White Rose eTheses Online OAI-PMH (consortium)
+  x-operator: tenant
+  description: >-
+    White Rose eTheses Online is the shared EPrints theses repository of York, Leeds and Sheffield, running
+    on the consortium's own domain. Its OAI-PMH 2.0 interface Identifies as "White Rose eTheses Online"
+    and harvests University of York thesis metadata. Consortium- operated on vendor software; recorded
+    as a tenant relationship rather than as a York contract.
+  humanURL: https://etheses.whiterose.ac.uk/
+  baseURL: https://etheses.whiterose.ac.uk/cgi/oai2
+  tags:
+  - Research Repository
+  - OAI-PMH
+  - EPrints
+  - Theses
+  - Open Access
+  - Consortium
+  - Tenant
+  properties:
+  - type: Portal
+    url: https://etheses.whiterose.ac.uk/
+- aid: university-of-york:university-of-york-iiif-image-api
+  name: University of York IIIF Image API
+  description: IIIF Image API 3.0, compliance level 2.
+  humanURL: https://discover.york.ac.uk/
+  baseURL: https://discover.york.ac.uk
+  tags:
+  - IIIF Image
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-york-iiif-image-api-openapi.yml
+  - type: Documentation
+    url: https://discover.york.ac.uk/about/
+  - type: x-json-schema
+    url: json-schema/university-of-york-digital-collections-item-schema.json
+  - type: x-example
+    url: examples/university-of-york-digital-collections-search-example.json
+  - type: x-authentication
+    url: authentication/university-of-york-authentication.yml
+  - type: x-errors
+    url: errors/university-of-york-errors.yml
+  - type: x-lifecycle
+    url: lifecycle/university-of-york-lifecycle.yml
+  - type: x-json-schema
+    url: json-schema/university-of-york-iiif-image-info-schema.json
+  - type: x-example
+    url: examples/university-of-york-iiif-image-info-example.json
+  - type: x-example
+    url: examples/university-of-york-iiif-presentation-manifest-example.json
+  - type: Conformance
+    url: conformance/university-of-york-conformance.yml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-identify-example.xml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-getrecord-example.xml
+  - type: Portal
+    url: https://pure.york.ac.uk/portal/
+- aid: university-of-york:university-of-york-iiif-presentation-api
+  name: University of York IIIF Presentation API
+  description: IIIF Presentation API 3.0 manifests and canvases.
+  humanURL: https://discover.york.ac.uk/
+  baseURL: https://discover.york.ac.uk
+  tags:
+  - IIIF Presentation
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-york-iiif-presentation-api-openapi.yml
+  - type: Documentation
+    url: https://discover.york.ac.uk/about/
+  - type: x-json-schema
+    url: json-schema/university-of-york-digital-collections-item-schema.json
+  - type: x-example
+    url: examples/university-of-york-digital-collections-search-example.json
+  - type: x-authentication
+    url: authentication/university-of-york-authentication.yml
+  - type: x-errors
+    url: errors/university-of-york-errors.yml
+  - type: x-lifecycle
+    url: lifecycle/university-of-york-lifecycle.yml
+  - type: x-json-schema
+    url: json-schema/university-of-york-iiif-image-info-schema.json
+  - type: x-example
+    url: examples/university-of-york-iiif-image-info-example.json
+  - type: x-example
+    url: examples/university-of-york-iiif-presentation-manifest-example.json
+  - type: Conformance
+    url: conformance/university-of-york-conformance.yml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-identify-example.xml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-getrecord-example.xml
+  - type: Portal
+    url: https://pure.york.ac.uk/portal/
+- aid: university-of-york:university-of-york-oai-pmh-api
+  name: University of York OAI PMH API
+  description: Open Archives Initiative Protocol for Metadata Harvesting 2.0.
+  humanURL: https://discover.york.ac.uk/
+  baseURL: https://discover.york.ac.uk
+  tags:
+  - OAI-PMH
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-york-oai-pmh-api-openapi.yml
+  - type: Documentation
+    url: https://discover.york.ac.uk/about/
+  - type: x-json-schema
+    url: json-schema/university-of-york-digital-collections-item-schema.json
+  - type: x-example
+    url: examples/university-of-york-digital-collections-search-example.json
+  - type: x-authentication
+    url: authentication/university-of-york-authentication.yml
+  - type: x-errors
+    url: errors/university-of-york-errors.yml
+  - type: x-lifecycle
+    url: lifecycle/university-of-york-lifecycle.yml
+  - type: x-json-schema
+    url: json-schema/university-of-york-iiif-image-info-schema.json
+  - type: x-example
+    url: examples/university-of-york-iiif-image-info-example.json
+  - type: x-example
+    url: examples/university-of-york-iiif-presentation-manifest-example.json
+  - type: Conformance
+    url: conformance/university-of-york-conformance.yml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-identify-example.xml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-getrecord-example.xml
+  - type: Portal
+    url: https://pure.york.ac.uk/portal/
+- aid: university-of-york:university-of-york-search-api
+  name: University of York Search API
+  description: Full-text and faceted search over the digital collections index.
+  humanURL: https://discover.york.ac.uk/
+  baseURL: https://discover.york.ac.uk
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-york-search-api-openapi.yml
+  - type: Documentation
+    url: https://discover.york.ac.uk/about/
+  - type: x-json-schema
+    url: json-schema/university-of-york-digital-collections-item-schema.json
+  - type: x-example
+    url: examples/university-of-york-digital-collections-search-example.json
+  - type: x-authentication
+    url: authentication/university-of-york-authentication.yml
+  - type: x-errors
+    url: errors/university-of-york-errors.yml
+  - type: x-lifecycle
+    url: lifecycle/university-of-york-lifecycle.yml
+  - type: x-json-schema
+    url: json-schema/university-of-york-iiif-image-info-schema.json
+  - type: x-example
+    url: examples/university-of-york-iiif-image-info-example.json
+  - type: x-example
+    url: examples/university-of-york-iiif-presentation-manifest-example.json
+  - type: Conformance
+    url: conformance/university-of-york-conformance.yml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-identify-example.xml
+  - type: x-example
+    url: examples/university-of-york-oai-pmh-getrecord-example.xml
+  - type: Portal
+    url: https://pure.york.ac.uk/portal/
 common:
   - type: Website
     url: https://www.york.ac.uk/
