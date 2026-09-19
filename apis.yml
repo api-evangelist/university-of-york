@@ -196,6 +196,11 @@ apis:
   - Identity Federation
   - Shibboleth
   - SAML
+  - SSO
+  tags_raw:
+  - Identity Federation
+  - Shibboleth
+  - SAML
   - Single Sign-On
   properties:
   - type: Conformance
@@ -217,6 +222,11 @@ apis:
   baseURL: https://pure.york.ac.uk/ws/api
   tags:
   - Research Information
+  - CRI
+  - Elsevier Pure
+  - Tenants
+  tags_raw:
+  - Research Information
   - CRIS
   - Elsevier Pure
   - Tenant
@@ -237,6 +247,13 @@ apis:
   humanURL: https://www.york.ac.uk/library/resources/yorsearch-help/
   baseURL: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
   tags:
+  - Library
+  - Discovery
+  - Primo
+  - Alma
+  - Ex Libris
+  - Tenants
+  tags_raw:
   - Library
   - Discovery
   - Primo
@@ -266,6 +283,13 @@ apis:
   - EPrints
   - Open Access
   - Consortium
+  - Tenants
+  tags_raw:
+  - Research Repository
+  - OAI-PMH
+  - EPrints
+  - Open Access
+  - Consortium
   - Tenant
   properties:
   - type: Portal
@@ -283,6 +307,14 @@ apis:
   humanURL: https://etheses.whiterose.ac.uk/
   baseURL: https://etheses.whiterose.ac.uk/cgi/oai2
   tags:
+  - Research Repository
+  - OAI-PMH
+  - EPrints
+  - Theses
+  - Open Access
+  - Consortium
+  - Tenants
+  tags_raw:
   - Research Repository
   - OAI-PMH
   - EPrints
