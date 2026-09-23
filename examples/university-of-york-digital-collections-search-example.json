@@ -1,0 +1,835 @@
+{
+  "generated": "2026-08-30",
+  "method": "probed",
+  "source": "https://discover.york.ac.uk/api/search-simple?q=york&page=1&size=2",
+  "description": "Verbatim response from the University of York Digital Collections search API. Captured live; not edited except for pretty-printing.",
+  "request": {
+    "method": "GET",
+    "url": "https://discover.york.ac.uk/api/search-simple?q=york&page=1&size=2",
+    "headers": {},
+    "auth": "none"
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json"
+  },
+  "example": {
+    "took": 138,
+    "timed_out": false,
+    "_shards": {
+      "total": 5,
+      "successful": 5,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 89113,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "discover-index",
+          "_id": "ark:/36941/806938/objects/17061",
+          "_score": 42.461662,
+          "_source": {
+            "id": "ark:/36941/806938/objects/17061",
+            "borthwick_catalogue_reference_code": [],
+            "creator": "",
+            "date": "",
+            "label": "York Exhibition, 1997",
+            "parent_collection_id": "",
+            "parent_collection_label": "",
+            "rights": "",
+            "subjects": "",
+            "summary": "Photographs documenting the history of the University of York, many taken by the University Photographers, based in the Library, from the 1990s. They cover all sorts of aspects of University life and environment. They have been digitised from photographic prints held in the Library and Borthwick Institute for Archives.",
+            "title": "York Exhibition, 1997",
+            "type": "item",
+            "work_type": "",
+            "ui_redirect_link": "/collections/uoy-photographs/?ahc=ahcUoYPhotographs&manifest=806938&canvas=17061",
+            "ui_main_collection_title": "University of York Photographs",
+            "ui_external_image_url": "",
+            "aggs_main_collection_name": "",
+            "aggs_main_collection_title": "University of York Photographs",
+            "aggs_parent_id": "ark:/36941/806938/presentation/3/manifest",
+            "aggs_parent_title": "1990s",
+            "aggs_creator": "",
+            "aggs_date": "",
+            "aggs_label": "York Exhibition, 1997",
+            "aggs_subjects": "",
+            "aggs_rights": "",
+            "aggs_type": "item",
+            "aggs_work_type": "",
+            "aggs_cp_court": "",
+            "aggs_cp_case": "",
+            "aggs_cp_details": "",
+            "aggs_cp_outcome": "",
+            "aggs_cp_date": "",
+            "aggs_cp_abstract": "",
+            "aggs_cp_parties_mentioned": "",
+            "aggs_cp_other_individuals": "",
+            "aggs_cp_witnesses": "",
+            "aggs_cp_places": "",
+            "aggs_ar_type": "",
+            "aggs_ar_section": "",
+            "aggs_ar_summary": "",
+            "aggs_ar_language": "",
+            "aggs_ar_subjects": "",
+            "aggs_ar_people": "",
+            "aggs_ar_places": "",
+            "aggs_ar_groups": "",
+            "aggs_ar_dates": "",
+            "aggs_ar_referenced_by": ""
+          },
+          "highlight": {
+            "summary": [
+              "Photographs documenting the history of the University of <mark>York</mark>, many taken by the University Photographers, based in the Library, from the 1990s."
+            ],
+            "label": [
+              "<mark>York</mark> Exhibition, 1997"
+            ],
+            "title": [
+              "<mark>York</mark> Exhibition, 1997"
+            ]
+          },
+          "sort": [
+            42.461662,
+            "York Exhibition, 1997"
+          ]
+        },
+        {
+          "_index": "discover-index",
+          "_id": "ark:/36941/806938/objects/17071",
+          "_score": 42.461662,
+          "_source": {
+            "id": "ark:/36941/806938/objects/17071",
+            "borthwick_catalogue_reference_code": [],
+            "creator": "",
+            "date": "",
+            "label": "York Exhibition, 1997",
+            "parent_collection_id": "",
+            "parent_collection_label": "",
+            "rights": "",
+            "subjects": "",
+            "summary": "Photographs documenting the history of the University of York, many taken by the University Photographers, based in the Library, from the 1990s. They cover all sorts of aspects of University life and environment. They have been digitised from photographic prints held in the Library and Borthwick Institute for Archives.",
+            "title": "York Exhibition, 1997",
+            "type": "item",
+            "work_type": "",
+            "ui_redirect_link": "/collections/uoy-photographs/?ahc=ahcUoYPhotographs&manifest=806938&canvas=17071",
+            "ui_main_collection_title": "University of York Photographs",
+            "ui_external_image_url": "",
+            "aggs_main_collection_name": "",
+            "aggs_main_collection_title": "University of York Photographs",
+            "aggs_parent_id": "ark:/36941/806938/presentation/3/manifest",
+            "aggs_parent_title": "1990s",
+            "aggs_creator": "",
+            "aggs_date": "",
+            "aggs_label": "York Exhibition, 1997",
+            "aggs_subjects": "",
+            "aggs_rights": "",
+            "aggs_type": "item",
+            "aggs_work_type": "",
+            "aggs_cp_court": "",
+            "aggs_cp_case": "",
+            "aggs_cp_details": "",
+            "aggs_cp_outcome": "",
+            "aggs_cp_date": "",
+            "aggs_cp_abstract": "",
+            "aggs_cp_parties_mentioned": "",
+            "aggs_cp_other_individuals": "",
+            "aggs_cp_witnesses": "",
+            "aggs_cp_places": "",
+            "aggs_ar_type": "",
+            "aggs_ar_section": "",
+            "aggs_ar_summary": "",
+            "aggs_ar_language": "",
+            "aggs_ar_subjects": "",
+            "aggs_ar_people": "",
+            "aggs_ar_places": "",
+            "aggs_ar_groups": "",
+            "aggs_ar_dates": "",
+            "aggs_ar_referenced_by": ""
+          },
+          "highlight": {
+            "summary": [
+              "Photographs documenting the history of the University of <mark>York</mark>, many taken by the University Photographers, based in the Library, from the 1990s."
+            ],
+            "label": [
+              "<mark>York</mark> Exhibition, 1997"
+            ],
+            "title": [
+              "<mark>York</mark> Exhibition, 1997"
+            ]
+          },
+          "sort": [
+            42.461662,
+            "York Exhibition, 1997"
+          ]
+        }
+      ]
+    },
+    "aggregations": {
+      "aggs_type": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "item",
+            "doc_count": 87571
+          },
+          {
+            "key": "manifest",
+            "doc_count": 1542
+          }
+        ]
+      },
+      "aggs_main_collection_title": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "Clifton Hospital Archive",
+            "doc_count": 25606
+          },
+          {
+            "key": "York Cause Papers",
+            "doc_count": 23692
+          },
+          {
+            "key": "Bootham Park Hospital Archive",
+            "doc_count": 14062
+          },
+          {
+            "key": "Vickers Instruments Images",
+            "doc_count": 7062
+          },
+          {
+            "key": "Archbishops' Registers",
+            "doc_count": 5988
+          },
+          {
+            "key": "University of York Photographs",
+            "doc_count": 3901
+          },
+          {
+            "key": "Derek Linstrum Images",
+            "doc_count": 2805
+          },
+          {
+            "key": "York Visitation Court Books",
+            "doc_count": 2500
+          },
+          {
+            "key": "Institute of Advanced Architectural Studies Images",
+            "doc_count": 847
+          },
+          {
+            "key": "University of York Art Collection",
+            "doc_count": 550
+          },
+          {
+            "key": "Art & Architecture Collection",
+            "doc_count": 541
+          },
+          {
+            "key": "Lord Halifax Diaries 1940-1946",
+            "doc_count": 372
+          },
+          {
+            "key": "Christopher Norton Images",
+            "doc_count": 332
+          },
+          {
+            "key": "Chapbooks Collection",
+            "doc_count": 105
+          },
+          {
+            "key": "University of York IT Services Photographs",
+            "doc_count": 97
+          },
+          {
+            "key": "Crime & Punishment Collection",
+            "doc_count": 90
+          },
+          {
+            "key": "Album of Psychic Photographs from the York Spiritualist Centre",
+            "doc_count": 68
+          },
+          {
+            "key": "Harewood West Indian Archive",
+            "doc_count": 61
+          },
+          {
+            "key": "Auction Catalogues & Inventories Collection",
+            "doc_count": 53
+          },
+          {
+            "key": "Backhouse Nursery glass slides",
+            "doc_count": 50
+          },
+          {
+            "key": "Philip Rahtz Slide Collection",
+            "doc_count": 49
+          },
+          {
+            "key": "Travel & Transport Collection",
+            "doc_count": 44
+          },
+          {
+            "key": "Social & Political Conditions Collection",
+            "doc_count": 40
+          },
+          {
+            "key": "Library Catalogues & Inventories Collection",
+            "doc_count": 37
+          },
+          {
+            "key": "Jane Hawkes Images",
+            "doc_count": 33
+          },
+          {
+            "key": "Trade Catalogues Collection",
+            "doc_count": 32
+          },
+          {
+            "key": "Public Entertainment Collection",
+            "doc_count": 27
+          },
+          {
+            "key": "Artefacts Collection",
+            "doc_count": 23
+          },
+          {
+            "key": "Trade Cards Collection",
+            "doc_count": 22
+          },
+          {
+            "key": "Maps Collection",
+            "doc_count": 21
+          },
+          {
+            "key": "Aero Girls",
+            "doc_count": 3
+          }
+        ]
+      },
+      "aggs_work_type": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "",
+            "doc_count": 83144
+          },
+          {
+            "key": "annotation",
+            "doc_count": 5969
+          }
+        ]
+      },
+      "aggs_creator": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "",
+            "doc_count": 37663
+          },
+          {
+            "key": "Clifton Hospital",
+            "doc_count": 25606
+          },
+          {
+            "key": "Bootham Park Hospital",
+            "doc_count": 14062
+          },
+          {
+            "key": "Cooke, Troughton & Simms",
+            "doc_count": 4750
+          },
+          {
+            "key": "Linstrum, Derek, 1923-2009",
+            "doc_count": 2627
+          },
+          {
+            "key": "T. Cooke & Sons Ltd",
+            "doc_count": 1613
+          },
+          {
+            "key": "University of York. Institute of Advanced Architectural Studies",
+            "doc_count": 846
+          },
+          {
+            "key": "Vickers Incorporated",
+            "doc_count": 629
+          },
+          {
+            "key": "Norton, Christopher, 1955-",
+            "doc_count": 330
+          },
+          {
+            "key": "Acton, George",
+            "doc_count": 131
+          },
+          {
+            "key": "Monkhouse, William, 1812-1896",
+            "doc_count": 126
+          },
+          {
+            "key": "Troughton & Simms",
+            "doc_count": 70
+          },
+          {
+            "key": "Joseph Rowntree Village Trust",
+            "doc_count": 52
+          },
+          {
+            "key": "Piper, Elizabeth",
+            "doc_count": 51
+          },
+          {
+            "key": "Cave, Henry, 1779-1836",
+            "doc_count": 41
+          },
+          {
+            "key": "York Medical Library",
+            "doc_count": 36
+          },
+          {
+            "key": "Hart, Moses",
+            "doc_count": 34
+          },
+          {
+            "key": "Nevison, William",
+            "doc_count": 34
+          },
+          {
+            "key": "Hawkes, Jane",
+            "doc_count": 33
+          },
+          {
+            "key": "Kendrew, John Lofthouse",
+            "doc_count": 33
+          },
+          {
+            "key": "Terry & Sons",
+            "doc_count": 31
+          },
+          {
+            "key": "Segar, Agnes",
+            "doc_count": 30
+          },
+          {
+            "key": "Millett, Fred",
+            "doc_count": 27
+          },
+          {
+            "key": "unknown",
+            "doc_count": 24
+          },
+          {
+            "key": "Carter, John, 1748-1817",
+            "doc_count": 21
+          },
+          {
+            "key": "Rahtz, Philip A.",
+            "doc_count": 20
+          },
+          {
+            "key": "Ainsworth, William Harrison, 1805-1882",
+            "doc_count": 18
+          },
+          {
+            "key": "Thomas Jefferys (1771)",
+            "doc_count": 18
+          },
+          {
+            "key": "Hollis And Webb",
+            "doc_count": 14
+          },
+          {
+            "key": "Yorkshire Fine Art & Industrial Exhibition",
+            "doc_count": 14
+          },
+          {
+            "key": "Nicholson, John, 1790-1843",
+            "doc_count": 13
+          },
+          {
+            "key": "Arnup, Sally",
+            "doc_count": 6
+          },
+          {
+            "key": "Lo, J.",
+            "doc_count": 5
+          },
+          {
+            "key": "Blackburn, David",
+            "doc_count": 3
+          },
+          {
+            "key": "Lyons, Roslyn",
+            "doc_count": 3
+          },
+          {
+            "key": "Barton, Albert",
+            "doc_count": 2
+          },
+          {
+            "key": "Cave, Henry",
+            "doc_count": 2
+          },
+          {
+            "key": "Hale, Michael",
+            "doc_count": 2
+          },
+          {
+            "key": "Lazzerini, Giuliana",
+            "doc_count": 2
+          },
+          {
+            "key": "Linstrum, Derek, (1923-2009)",
+            "doc_count": 2
+          },
+          {
+            "key": "McWeeny, Jane",
+            "doc_count": 2
+          },
+          {
+            "key": "Mercer, Harry",
+            "doc_count": 2
+          },
+          {
+            "key": "Scott, Michael",
+            "doc_count": 2
+          },
+          {
+            "key": "Whittaker, Malcolm",
+            "doc_count": 2
+          },
+          {
+            "key": "Wright, Austin",
+            "doc_count": 2
+          },
+          {
+            "key": "Aca, Lazlo",
+            "doc_count": 1
+          },
+          {
+            "key": "Anderson, Jessica",
+            "doc_count": 1
+          },
+          {
+            "key": "Barnes, Richard",
+            "doc_count": 1
+          },
+          {
+            "key": "Blackadder, Elizabeth",
+            "doc_count": 1
+          },
+          {
+            "key": "Bolland, Emma",
+            "doc_count": 1
+          },
+          {
+            "key": "Case, Stephen",
+            "doc_count": 1
+          },
+          {
+            "key": "Cole, B.",
+            "doc_count": 1
+          },
+          {
+            "key": "Combi, Linda",
+            "doc_count": 1
+          },
+          {
+            "key": "Connor, Angela",
+            "doc_count": 1
+          },
+          {
+            "key": "Creed, Louisa",
+            "doc_count": 1
+          },
+          {
+            "key": "Cumber, J.",
+            "doc_count": 1
+          },
+          {
+            "key": "Davie, Alan",
+            "doc_count": 1
+          },
+          {
+            "key": "De Charmoy, Cozette",
+            "doc_count": 1
+          },
+          {
+            "key": "Donohoe, Peter",
+            "doc_count": 1
+          },
+          {
+            "key": "English, Monica M.",
+            "doc_count": 1
+          },
+          {
+            "key": "Epstein, Jacob",
+            "doc_count": 1
+          },
+          {
+            "key": "Fowkes, David",
+            "doc_count": 1
+          },
+          {
+            "key": "Fryers, Ian",
+            "doc_count": 1
+          },
+          {
+            "key": "Gill, Alfred",
+            "doc_count": 1
+          },
+          {
+            "key": "Gray, Jennifer",
+            "doc_count": 1
+          },
+          {
+            "key": "Green, Valentine",
+            "doc_count": 1
+          },
+          {
+            "key": "Griffiths, Michael",
+            "doc_count": 1
+          },
+          {
+            "key": "Grignon, C.",
+            "doc_count": 1
+          },
+          {
+            "key": "Guy, T.",
+            "doc_count": 1
+          },
+          {
+            "key": "Hack, Hans",
+            "doc_count": 1
+          },
+          {
+            "key": "Hall, Sarah",
+            "doc_count": 1
+          },
+          {
+            "key": "Harrison",
+            "doc_count": 1
+          },
+          {
+            "key": "Haynes, John, approximately 1706-approximately 1770",
+            "doc_count": 1
+          },
+          {
+            "key": "Hepworth, Barbara",
+            "doc_count": 1
+          },
+          {
+            "key": "Hermes, Gertrude",
+            "doc_count": 1
+          },
+          {
+            "key": "Hodgson, Bill",
+            "doc_count": 1
+          },
+          {
+            "key": "Ionides, Polly",
+            "doc_count": 1
+          },
+          {
+            "key": "Jennings, Martin",
+            "doc_count": 1
+          },
+          {
+            "key": "Kreitter, Keith",
+            "doc_count": 1
+          },
+          {
+            "key": "Langton, John",
+            "doc_count": 1
+          },
+          {
+            "key": "LeQuesne, Ann-Marie",
+            "doc_count": 1
+          },
+          {
+            "key": "Leeman, J.",
+            "doc_count": 1
+          },
+          {
+            "key": "Lindsey, Peter",
+            "doc_count": 1
+          },
+          {
+            "key": "Lord, Caroline",
+            "doc_count": 1
+          },
+          {
+            "key": "Manby, Josephine",
+            "doc_count": 1
+          },
+          {
+            "key": "McGuire, Judi",
+            "doc_count": 1
+          },
+          {
+            "key": "Mellard, Keith",
+            "doc_count": 1
+          },
+          {
+            "key": "Mierins, Laimonis",
+            "doc_count": 1
+          },
+          {
+            "key": "Mooney, John",
+            "doc_count": 1
+          },
+          {
+            "key": "Moore, Hilary",
+            "doc_count": 1
+          },
+          {
+            "key": "Morisot, Berthe",
+            "doc_count": 1
+          },
+          {
+            "key": "Morris, Tony",
+            "doc_count": 1
+          },
+          {
+            "key": "Mowbray, Joanna",
+            "doc_count": 1
+          },
+          {
+            "key": "Neuvonen, Tina",
+            "doc_count": 1
+          },
+          {
+            "key": "Nicholson, Tim",
+            "doc_count": 1
+          },
+          {
+            "key": "O'Malley, Helen",
+            "doc_count": 1
+          },
+          {
+            "key": "Platt, Russell",
+            "doc_count": 1
+          },
+          {
+            "key": "Pryor, Nelly",
+            "doc_count": 1
+          },
+          {
+            "key": "Puig, Joaquin Vancells",
+            "doc_count": 1
+          },
+          {
+            "key": "Raflewski, H. R.",
+            "doc_count": 1
+          },
+          {
+            "key": "Richards, K. D.",
+            "doc_count": 1
+          },
+          {
+            "key": "Richter, Carl August",
+            "doc_count": 1
+          },
+          {
+            "key": "Robinson, Buffy",
+            "doc_count": 1
+          },
+          {
+            "key": "S., A.",
+            "doc_count": 1
+          },
+          {
+            "key": "Sargeant, Gary",
+            "doc_count": 1
+          },
+          {
+            "key": "Sathe, S.D.",
+            "doc_count": 1
+          },
+          {
+            "key": "Scott, Eileen",
+            "doc_count": 1
+          },
+          {
+            "key": "Segelman, Frances",
+            "doc_count": 1
+          },
+          {
+            "key": "Stephens, Chris",
+            "doc_count": 1
+          },
+          {
+            "key": "Stephenson, Ian",
+            "doc_count": 1
+          },
+          {
+            "key": "T. G. Hartley & Son",
+            "doc_count": 1
+          },
+          {
+            "key": "Taramus",
+            "doc_count": 1
+          },
+          {
+            "key": "Taylor, Thomas",
+            "doc_count": 1
+          },
+          {
+            "key": "Taylor, Thomas M.",
+            "doc_count": 1
+          },
+          {
+            "key": "Thackray, Simon",
+            "doc_count": 1
+          },
+          {
+            "key": "Topolski, Feliks",
+            "doc_count": 1
+          },
+          {
+            "key": "Waters, Bob",
+            "doc_count": 1
+          },
+          {
+            "key": "Whimcop, R. L.",
+            "doc_count": 1
+          },
+          {
+            "key": "Wilby, Reg",
+            "doc_count": 1
+          },
+          {
+            "key": "Williamson, Christopher",
+            "doc_count": 1
+          },
+          {
+            "key": "Wilson, Roger",
+            "doc_count": 1
+          },
+          {
+            "key": "Wright, Austin, 1911-",
+            "doc_count": 1
+          },
+          {
+            "key": "Wynne, David",
+            "doc_count": 1
+          },
+          {
+            "key": "Young, Gordon",
+            "doc_count": 1
+          }
+        ]
+      }
+    }
+  }
+}

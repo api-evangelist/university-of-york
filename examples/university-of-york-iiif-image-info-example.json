@@ -1,0 +1,64 @@
+{
+  "generated": "2026-08-30",
+  "method": "probed",
+  "source": "https://discover.york.ac.uk/iiif/3/ark:/36941/common/objects/uoy-logo/info.json",
+  "description": "Verbatim IIIF Image API 3.0 image information document served by the University of York. Declares profile level2.",
+  "request": {
+    "method": "GET",
+    "url": "https://discover.york.ac.uk/iiif/3/ark:/36941/common/objects/uoy-logo/info.json",
+    "auth": "none"
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/ld+json"
+  },
+  "example": {
+    "@context": "http://iiif.io/api/image/3/context.json",
+    "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/common/objects/uoy-logo",
+    "type": "ImageService3",
+    "protocol": "http://iiif.io/api/image",
+    "profile": "level2",
+    "width": 500,
+    "height": 164,
+    "sizes": [
+      {
+        "width": 500,
+        "height": 164
+      },
+      {
+        "width": 250,
+        "height": 82
+      }
+    ],
+    "tiles": [
+      {
+        "width": 256,
+        "height": 256,
+        "scaleFactors": [
+          1,
+          2
+        ]
+      }
+    ],
+    "extraFeatures": [
+      "canonicalLinkHeader",
+      "mirroring",
+      "profileLinkHeader",
+      "rotationArbitrary",
+      "sizeByDistortedWh",
+      "sizeByForcedWh",
+      "sizeByWhListed",
+      "sizeUpscaling"
+    ],
+    "extraFormats": [
+      "gif",
+      "tif",
+      "webp"
+    ],
+    "extraQualities": [
+      "color",
+      "gray",
+      "bitonal"
+    ]
+  }
+}

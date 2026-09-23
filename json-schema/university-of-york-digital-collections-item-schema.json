@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-york/main/json-schema/university-of-york-digital-collections-item-schema.json",
+  "title": "University of York Digital Collections Item",
+  "description": "One indexed record from the University of York Digital Collections search API (discover.york.ac.uk/api/search-simple). Derived field-by-field from live responses captured 2026-08-30; every property below was observed in a real payload. Institution-operated surface.",
+  "x-provenance": {
+    "generated": "2026-08-30",
+    "method": "derived",
+    "source": "https://discover.york.ac.uk/api/search-simple?q=york&page=1&size=2"
+  },
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "ARK-based item identifier under the University of York NAAN 36941. Doubles as the IIIF Image API identifier path.",
+      "pattern": "^ark:/36941/",
+      "examples": ["ark:/36941/806938/objects/17061"]
+    },
+    "title": { "type": "string" },
+    "label": { "type": "string" },
+    "summary": { "type": "string", "description": "Collection-level description text repeated onto each item." },
+    "creator": { "type": "string" },
+    "date": { "type": "string", "description": "Free-text date as catalogued, e.g. '1922-1963'." },
+    "date_range": {
+      "type": "object",
+      "description": "Normalised date range, present only when the catalogue date could be parsed.",
+      "properties": {
+        "gte": { "type": "string", "format": "date" },
+        "lte": { "type": "string", "format": "date" }
+      }
+    },
+    "subjects": {
+      "description": "Subject terms. Observed both as a bare string (often empty) and as an array of strings.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } }
+      ]
+    },
+    "rights": { "type": "string" },
+    "type": { "type": "string", "description": "Record type.", "examples": ["item", "manifest"] },
+    "work_type": { "type": "string" },
+    "parent_collection_id": { "type": "string" },
+    "parent_collection_label": { "type": "string" },
+    "borthwick_catalogue_reference_code": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Reference code in the Borthwick Institute for Archives catalogue."
+    },
+    "ui_redirect_link": { "type": "string", "description": "Site-relative viewer link, carrying manifest and canvas query parameters." },
+    "ui_main_collection_title": { "type": "string" },
+    "ui_external_image_url": { "type": "string" },
+    "aggs_parent_id": {
+      "type": "string",
+      "description": "IIIF Presentation 3 manifest identifier of the parent object.",
+      "examples": ["ark:/36941/796351/presentation/3/manifest"]
+    },
+    "aggs_main_collection_name": { "type": "string" },
+    "aggs_main_collection_title": { "type": "string" },
+    "aggs_parent_title": { "type": "string" },
+    "aggs_creator": { "type": "string" },
+    "aggs_date": { "type": "string" },
+    "aggs_label": { "type": "string" },
+    "aggs_subjects": { "type": "string" },
+    "aggs_rights": { "type": "string" },
+    "aggs_type": { "type": "string" },
+    "aggs_work_type": { "type": "string" },
+    "aggs_cp_court": { "type": "string", "description": "York Cause Papers facet." },
+    "aggs_cp_case": { "type": "string" },
+    "aggs_cp_details": { "type": "string" },
+    "aggs_cp_outcome": { "type": "string" },
+    "aggs_cp_date": { "type": "string" },
+    "aggs_cp_abstract": { "type": "string" },
+    "aggs_cp_parties_mentioned": { "type": "string" },
+    "aggs_cp_other_individuals": { "type": "string" },
+    "aggs_cp_witnesses": { "type": "string" },
+    "aggs_cp_places": { "type": "string" },
+    "aggs_ar_type": { "type": "string", "description": "Archival-record facet." },
+    "aggs_ar_section": { "type": "string" },
+    "aggs_ar_summary": { "type": "string" },
+    "aggs_ar_language": { "type": "string" },
+    "aggs_ar_subjects": { "type": "string" },
+    "aggs_ar_people": { "type": "string" },
+    "aggs_ar_places": { "type": "string" },
+    "aggs_ar_groups": { "type": "string" },
+    "aggs_ar_dates": { "type": "string" },
+    "aggs_ar_referenced_by": { "type": "string" }
+  },
+  "additionalProperties": true
+}

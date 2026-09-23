@@ -1,44 +1,58 @@
 {
   "@context": {
+    "@version": 1.1,
     "@vocab": "https://schema.org/",
-    "york": "https://www.york.ac.uk/ns/",
-    "dc": "http://purl.org/dc/elements/1.1/",
-    "oai": "http://www.openarchives.org/OAI/2.0/",
     "schema": "https://schema.org/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dct": "http://purl.org/dc/terms/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "mods": "http://www.loc.gov/mods/v3",
+    "iiif_image": "http://iiif.io/api/image/3#",
+    "iiif_prezi": "http://iiif.io/api/presentation/3#",
+    "ark": "https://n2t.net/ark:/36941/",
+    "york": "https://www.york.ac.uk/ns/",
+
     "University": "schema:CollegeOrUniversity",
-    "name": "schema:name",
-    "url": "schema:url",
-    "description": "schema:description",
-    "Repository": "schema:DataCatalog",
-    "ScholarlyWork": "schema:CreativeWork",
-    "Thesis": "schema:Thesis",
+    "DigitalCollection": "schema:Collection",
+    "ArchiveComponent": "schema:ArchiveComponent",
+    "ImageObject": "schema:ImageObject",
     "ScholarlyArticle": "schema:ScholarlyArticle",
+    "Thesis": "schema:Thesis",
+    "Person": "schema:Person",
+
+    "name": "schema:name",
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "description": "schema:description",
     "identifier": "schema:identifier",
-    "datestamp": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
-    "title": "dc:title",
+    "dateModified": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
+    "isPartOf": { "@id": "schema:isPartOf", "@type": "@id" },
     "creator": { "@id": "dc:creator", "@container": "@set" },
     "subject": { "@id": "dc:subject", "@container": "@set" },
+    "title": "dc:title",
     "abstract": "dc:description",
-    "relation": { "@id": "dc:relation", "@type": "@id" },
+    "rights": "dct:rights",
+
+    "orcid": { "@id": "http://id.loc.gov/vocabulary/identifiers/orcid", "@type": "@id" },
+    "doi": { "@id": "http://id.loc.gov/vocabulary/identifiers/doi", "@type": "@id" },
+
+    "arkId": { "@id": "york:arkId", "@type": "@id" },
+    "naan": "york:naan",
+    "manifest": { "@id": "iiif_prezi:Manifest", "@type": "@id" },
+    "canvas": { "@id": "iiif_prezi:Canvas", "@type": "@id" },
+    "imageService": { "@id": "iiif_image:ImageService3", "@type": "@id" },
+    "complianceLevel": "iiif_image:profile",
+
     "baseURL": { "@id": "oai:baseURL", "@type": "@id" },
     "metadataPrefix": "oai:metadataPrefix",
-    "setSpec": { "@id": "oai:setSpec", "@container": "@set" }
-  },
-  "@type": "University",
-  "name": "University of York",
-  "url": "https://www.york.ac.uk/",
-  "york:repository": [
-    {
-      "@type": "Repository",
-      "name": "White Rose Research Online",
-      "url": "https://eprints.whiterose.ac.uk/about.html",
-      "baseURL": "https://eprints.whiterose.ac.uk/cgi/oai2"
-    },
-    {
-      "@type": "Repository",
-      "name": "White Rose eTheses Online",
-      "url": "https://etheses.whiterose.ac.uk/",
-      "baseURL": "https://etheses.whiterose.ac.uk/cgi/oai2"
+    "setSpec": { "@id": "oai:setSpec", "@container": "@set" },
+    "deletedRecord": "oai:deletedRecord",
+
+    "operator": "york:operator",
+    "x-provenance": {
+      "generated": "2026-08-30",
+      "method": "derived",
+      "source": "openapi/university-of-york-digital-collections-search-openapi.yml, openapi/university-of-york-digital-collections-iiif-openapi.yml, openapi/university-of-york-research-portal-oai-pmh-openapi.yml",
+      "note": "Replaces a context derived from the White Rose EPrints consortium contract, which is no longer attributed to this institution. Terms map the three institution-operated surfaces: Digital Collections search, IIIF, and research-portal OAI-PMH."
     }
-  ]
+  }
 }

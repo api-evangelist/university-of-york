@@ -1,45 +1,119 @@
----
 name: University of York
 description: University of York public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/university-of-york/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
-  - date: '2026-06-03'
-    rating: 2
-    summary: >-
-      The University of York publishes no dedicated public developer portal and no
-      self-service, documented API program. Confirmed live programmatic surface is
-      standards-based and library/research oriented: White Rose Research Online and
-      White Rose eTheses Online both returned valid OAI-PMH 2.0 Identify responses
-      (HTTP 200), and the YorSearch Primo/Alma discovery UI is live (HTTP 200, view id
-      44YORK-NUI) though its Primo APIs are not openly documented. The verified GitHub
-      org exists but contains internal IT/faculty engineering tooling (e.g.
-      fmsys-alma-printing-api) rather than published external APIs. No data.york.ac.uk
-      open-data API resolved. No endpoints were fabricated; each URL below was probed
-      directly.
-    endpoints:
-      - url: https://eprints.whiterose.ac.uk/cgi/oai2?verb=Identify
-        status: 200
-        note: White Rose Research Online OAI-PMH 2.0; valid Identify response (shared York/Leeds/Sheffield EPrints repo).
-      - url: https://etheses.whiterose.ac.uk/cgi/oai2?verb=Identify
-        status: 200
-        note: White Rose eTheses Online OAI-PMH 2.0; valid Identify, metadata policy noted as not fully configured.
-      - url: https://yorsearch.york.ac.uk/primo-explore/search?vid=44YORK-NUI
-        status: 200
-        note: YorSearch Ex Libris Primo discovery UI (Alma backend); programmatic APIs not openly documented.
-      - url: https://status.york.ac.uk/
-        status: 200
-        note: Official IT Services service status page.
-      - url: https://github.com/university-of-york
-        status: 200
-        note: Verified official GitHub org (york.ac.uk domain badge); internal IT/faculty tooling repos.
-      - url: https://www.york.ac.uk/
-        status: 200
-        note: Official institutional website.
-      - url: https://uk.linkedin.com/school/uniofyork/
-        status: 999
-        note: Official LinkedIn school page; 999 is LinkedIn anti-bot response, page exists publicly.
-      - url: https://data.york.ac.uk/
-        status: 0
-        note: Did not resolve; no University of York open-data API portal at this host.
+- date: '2026-08-30'
+  rating: 3
+  summary: 'Re-profiled under the university pipeline with operator attribution settled before any contract
+    was saved. The 2026-06-03 review credited York with the White Rose EPrints consortium''s OAI-PMH contract;
+    White Rose is co-owned by York, Leeds and Sheffield on a domain York does not own, so those specs
+    and the nine artifacts derived from them were removed and the relationships re-recorded as tenant.
+    In their place, three genuinely first-party surfaces were found by live probe and none of them were
+    catalogued before: a keyless Elasticsearch-backed search API over 415,165 digital-collections records
+    at discover.york.ac.uk; a IIIF Image API 3.0 deployment declaring compliance level 2 alongside IIIF
+    Presentation API 3.0 manifests and canvases, under the University''s own ARK NAAN 36941; and OAI-PMH
+    2.0 at pure.york.ac.uk/ws/oai whose Identify names ''The University of York'' and whose MODS records
+    carry typed ORCID iDs. A Shibboleth SAML 2.0 IdP is confirmed by behaviour but publishes no metadata
+    from a York host. Nothing is documented by the University: no OpenAPI, no developer portal, no changelog,
+    no licence, no terms. Rating raised from 2 to 3 because the estate is real and callable, not because
+    it is well governed.'
+  endpoints:
+  - url: https://discover.york.ac.uk/api/search-simple?q=york&page=1&size=2
+    status: 200
+    note: Keyless JSON search, 415,165 records, CORS allow-origin *. Institution-operated.
+  - url: https://discover.york.ac.uk/api/search?q=york&size=2
+    status: 200
+    note: Second live search endpoint, different aggregation set.
+  - url: https://discover.york.ac.uk/iiif/3/ark:/36941/common/objects/uoy-logo/info.json
+    status: 200
+    note: IIIF Image API 3.0 info.json; declares profile level2, type ImageService3.
+  - url: https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/manifest
+    status: 200
+    note: IIIF Presentation API 3.0 Manifest, 7 canvases.
+  - url: https://discover.york.ac.uk/ark:/36941/796351/presentation/3/collection
+    status: 403
+    note: IIIF Collection endpoint not deployed; no machine-readable collection index.
+  - url: https://discover.york.ac.uk/api/annotations/796351/802563
+    status: 200
+    note: SOFT 404 — returns the Gatsby HTML 404 shell. Referenced by the site JS but not deployed. Excluded.
+  - url: https://pure.york.ac.uk/ws/oai?verb=Identify
+    status: 200
+    note: repositoryName "The University of York", adminEmail pure-support@york.ac.uk, deletedRecord no.
+  - url: https://pure.york.ac.uk/ws/oai?verb=ListSets
+    status: 200
+    note: persons:all, publications:all, publications:withFiles, publications:year{YYYY}.
+  - url: https://pure.york.ac.uk/ws/api/524/openapi.json
+    status: 401
+    note: Elsevier Pure's own REST contract. Tenant; deliberately not saved under this slug.
+  - url: https://shib.york.ac.uk/idp/profile/SAML2/Redirect/SSO
+    status: 400
+    note: Shibboleth IdP SAML2 Redirect SSO endpoint answering; software confirmed.
+  - url: https://shib.york.ac.uk/idp/profile/Metadata/SAML
+    status: 200
+    note: Returns the Shibboleth error page, not SAML metadata. Metadata is federation-distributed.
+  - url: https://api.york.ac.uk/
+    status: 403
+    note: '"403 local - University of York" — institution-operated API host, campus-network restricted.'
+  - url: https://eprints.whiterose.ac.uk/cgi/oai2?verb=Identify
+    status: 200
+    note: White Rose Research Online. Consortium-operated with Leeds and Sheffield. Tenant.
+  - url: https://etheses.whiterose.ac.uk/cgi/oai2?verb=Identify
+    status: 200
+    note: White Rose eTheses Online. Consortium-operated. Tenant.
+  - url: https://yorsearch.york.ac.uk/discovery/search?vid=44YORK_INST:NUI
+    status: 200
+    note: Ex Libris Primo/Alma. Tenant. Note the view id is 44YORK_INST:NUI, not the 44YORK-NUI recorded
+      in 2026-06.
+  - url: https://www.york.ac.uk/llms.txt
+    status: 404
+    note: No agent-facing guidance published.
+  - url: https://www.york.ac.uk/.well-known/security.txt
+    status: 404
+    note: No security contact published at the well-known path.
+  - url: https://data.york.ac.uk/
+    status: 0
+    note: Does not resolve. No open-data portal.
+  - url: https://courses.york.ac.uk/
+    status: 0
+    note: Does not resolve. No course/timetable API.
+  - url: https://developer.york.ac.uk/
+    status: 0
+    note: Does not resolve. No developer portal.
+- date: '2026-06-03'
+  rating: 2
+  summary: 'The University of York publishes no dedicated public developer portal and no self-service,
+    documented API program. Confirmed live programmatic surface is standards-based and library/research
+    oriented: White Rose Research Online and White Rose eTheses Online both returned valid OAI-PMH 2.0
+    Identify responses (HTTP 200), and the YorSearch Primo/Alma discovery UI is live (HTTP 200, view id
+    44YORK-NUI) though its Primo APIs are not openly documented. The verified GitHub org exists but contains
+    internal IT/faculty engineering tooling (e.g. fmsys-alma-printing-api) rather than published external
+    APIs. No data.york.ac.uk open-data API resolved. No endpoints were fabricated; each URL below was
+    probed directly.'
+  endpoints:
+  - url: https://eprints.whiterose.ac.uk/cgi/oai2?verb=Identify
+    status: 200
+    note: White Rose Research Online OAI-PMH 2.0; valid Identify response (shared York/Leeds/Sheffield
+      EPrints repo).
+  - url: https://etheses.whiterose.ac.uk/cgi/oai2?verb=Identify
+    status: 200
+    note: White Rose eTheses Online OAI-PMH 2.0; valid Identify, metadata policy noted as not fully configured.
+  - url: https://yorsearch.york.ac.uk/primo-explore/search?vid=44YORK-NUI
+    status: 200
+    note: YorSearch Ex Libris Primo discovery UI (Alma backend); programmatic APIs not openly documented.
+  - url: https://status.york.ac.uk/
+    status: 200
+    note: Official IT Services service status page.
+  - url: https://github.com/university-of-york
+    status: 200
+    note: Verified official GitHub org (york.ac.uk domain badge); internal IT/faculty tooling repos.
+  - url: https://www.york.ac.uk/
+    status: 200
+    note: Official institutional website.
+  - url: https://uk.linkedin.com/school/uniofyork/
+    status: 999
+    note: Official LinkedIn school page; 999 is LinkedIn anti-bot response, page exists publicly.
+  - url: https://data.york.ac.uk/
+    status: 0
+    note: Did not resolve; no University of York open-data API portal at this host.

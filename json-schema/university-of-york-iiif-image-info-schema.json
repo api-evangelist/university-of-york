@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-york/main/json-schema/university-of-york-iiif-image-info-schema.json",
+  "title": "University of York IIIF Image API 3.0 Information Document",
+  "description": "The image information document (info.json) as served by the University of York Digital Collections IIIF Image API at discover.york.ac.uk/iiif/3/. Constrained to what this deployment actually returns: profile level2, ImageService3, and its declared extraFeatures / extraFormats / extraQualities. This is the University's deployment of an open IIIF specification, not a vendor contract.",
+  "x-provenance": {
+    "generated": "2026-08-30",
+    "method": "derived",
+    "source": "https://discover.york.ac.uk/iiif/3/ark:/36941/common/objects/uoy-logo/info.json"
+  },
+  "type": "object",
+  "required": ["@context", "id", "type", "protocol", "profile", "width", "height"],
+  "properties": {
+    "@context": { "const": "http://iiif.io/api/image/3/context.json" },
+    "id": { "type": "string", "format": "uri", "pattern": "^https://discover\\.york\\.ac\\.uk/iiif/3/ark:/36941/" },
+    "type": { "const": "ImageService3" },
+    "protocol": { "const": "http://iiif.io/api/image" },
+    "profile": { "type": "string", "enum": ["level0", "level1", "level2"], "description": "This deployment serves level2." },
+    "width": { "type": "integer", "minimum": 1 },
+    "height": { "type": "integer", "minimum": 1 },
+    "sizes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["width", "height"],
+        "properties": { "width": { "type": "integer" }, "height": { "type": "integer" } }
+      }
+    },
+    "tiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "width": { "type": "integer" },
+          "height": { "type": "integer" },
+          "scaleFactors": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    },
+    "extraFeatures": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Declared by this deployment: canonicalLinkHeader, mirroring, profileLinkHeader, rotationArbitrary, sizeByDistortedWh, sizeByForcedWh, sizeByWhListed, sizeUpscaling."
+    },
+    "extraFormats": { "type": "array", "items": { "type": "string", "enum": ["gif", "tif", "webp"] } },
+    "extraQualities": { "type": "array", "items": { "type": "string", "enum": ["color", "gray", "bitonal"] } }
+  },
+  "additionalProperties": true
+}

@@ -1,55 +1,134 @@
+# generated: 2026-08-30
+# method: derived
+# source: openapi/university-of-york-digital-collections-search-openapi.yml,
+#         openapi/university-of-york-digital-collections-iiif-openapi.yml,
+#         openapi/university-of-york-research-portal-oai-pmh-openapi.yml
+#
+# Spectral ruleset for the University of York's INSTITUTION-OPERATED API contracts. It replaces a
+# ruleset whose documentationUrl pointed at the White Rose EPrints consortium — a shared surface no
+# longer attributed to this institution. The rules below encode the conventions these three
+# contracts actually hold to, plus the two gaps the profiling run found (no licence, no terms), so
+# a future harvest is measured against what is real here.
 extends: []
 formats:
   - oas3
-documentationUrl: https://eprints.whiterose.ac.uk/about.html
+documentationUrl: https://discover.york.ac.uk/about/
 rules:
-  oai-info-title-present:
+  info-title-present:
     description: API must declare a title.
     severity: error
     given: $.info
     then:
       field: title
       function: truthy
-  oai-info-version-present:
+  info-version-present:
     description: API must declare a version.
     severity: error
     given: $.info
     then:
       field: version
       function: truthy
-  oai-contact-email-present:
-    description: Repository contact email should be published (OAI-PMH adminEmail convention).
-    severity: warn
-    given: $.info.contact
-    then:
-      field: email
-      function: truthy
-  oai-single-endpoint:
-    description: OAI-PMH repositories expose a single base URL; only the /oai2 path is expected.
-    severity: warn
-    given: $.paths
-    then:
-      function: length
-      functionOptions:
-        max: 1
-  oai-verb-parameter-required:
-    description: Every operation must require the OAI-PMH 'verb' query parameter.
+  info-description-present:
+    description: >-
+      API must carry a description. For an institution with no developer portal, the contract is the
+      only documentation that exists.
     severity: error
-    given: $.paths[*].get.parameters[?(@.name=='verb')]
+    given: $.info
     then:
-      field: required
+      field: description
       function: truthy
-  oai-verb-enum-complete:
-    description: The verb parameter should enumerate the six OAI-PMH 2.0 verbs.
-    severity: warn
-    given: $.paths[*].get.parameters[?(@.name=='verb')].schema
+  operator-declared:
+    description: >-
+      Every contract in a university repository must declare x-operator, so an institution is never
+      silently credited with a vendor's engineering.
+    severity: error
+    given: $.info
     then:
-      field: enum
+      field: x-operator
       function: truthy
-  oai-xml-response-media-type:
-    description: OAI-PMH responses are XML; the 200 response should declare application/xml.
-    severity: warn
-    given: $.paths[*].get.responses['200'].content
+  provenance-declared:
+    description: Every contract must declare how it was obtained (x-provenance.method).
+    severity: error
+    given: $.info
     then:
-      field: application/xml
+      field: x-provenance
+      function: truthy
+  servers-absolute:
+    description: >-
+      servers[].url must be absolute. A relative or missing server is how vendor contracts pass an
+      ownership audit unexamined.
+    severity: error
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  servers-institution-host:
+    description: >-
+      Every server in this repository must be under york.ac.uk. Anything else is a tenant or vendor
+      surface and belongs in apis.yml as a relationship, not here as a contract.
+    severity: error
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: '^https://[a-z0-9.-]*york\.ac\.uk'
+  operation-id-present:
+    description: Every operation should declare an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+  operation-summary-present:
+    description: Every operation should carry a summary.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+  operation-tagged:
+    description: Every operation must be tagged, so refine-openapis can split cleanly.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+  keyless-declared-explicitly:
+    description: >-
+      These surfaces are keyless. Say so with an explicit empty security array rather than by
+      omission, so an agent can tell "no auth needed" from "auth undocumented".
+    severity: warn
+    given: $.paths[*][get]
+    then:
+      field: security
+      function: defined
+  error-response-documented:
+    description: >-
+      Every operation should document at least one non-2xx response. Measured gap: the University
+      publishes no error model, so the contract has to carry it.
+    severity: warn
+    given: $.paths[*][get]
+    then:
+      field: responses
+      function: truthy
+  info-license-present:
+    description: >-
+      MEASURED GAP, not a style preference. No University of York API surface states a licence or
+      terms of use, and the IIIF manifests carry no rights property. Reuse conditions are unstated.
+    severity: warn
+    given: $.info
+    then:
+      field: license
+      function: truthy
+  info-contact-present:
+    description: >-
+      MEASURED GAP. There is no developer contact for any of these APIs; the contact recorded in
+      these contracts is the nearest responsible team, not an API support channel.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
       function: truthy

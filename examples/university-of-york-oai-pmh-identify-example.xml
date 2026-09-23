@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  generated: 2026-08-30
+  method: probed
+  source: https://pure.york.ac.uk/ws/oai?verb=Identify
+  description: Verbatim OAI-PMH 2.0 Identify response from the University of York research portal.
+  response: HTTP 200 application/xml
+-->
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-08-30T20:50:46Z</responseDate>
+  <request verb="Identify">https://pure.york.ac.uk/ws/oai</request>
+  <Identify>
+    <repositoryName>The University of York</repositoryName>
+    <baseURL>https://pure.york.ac.uk/ws/oai</baseURL>
+    <protocolVersion>2.0</protocolVersion>
+    <adminEmail>pure-support@york.ac.uk</adminEmail>
+    <earliestDatestamp>2014-10-14T11:47:31Z</earliestDatestamp>
+    <deletedRecord>no</deletedRecord>
+    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+  </Identify>
+</OAI-PMH>

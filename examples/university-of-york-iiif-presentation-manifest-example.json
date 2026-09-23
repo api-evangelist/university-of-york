@@ -1,0 +1,1678 @@
+{
+  "generated": "2026-08-30",
+  "method": "probed",
+  "source": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/manifest",
+  "description": "Verbatim IIIF Presentation API 3.0 Manifest ('Little Red Riding Hood', 7 canvases) served by the University of York.",
+  "request": {
+    "method": "GET",
+    "url": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/manifest",
+    "auth": "none"
+  },
+  "response": {
+    "status": 200,
+    "content_type": "application/json"
+  },
+  "example": {
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/manifest",
+    "type": "Manifest",
+    "behavior": [
+      "individuals"
+    ],
+    "label": {
+      "en": [
+        "Little Red Riding Hood"
+      ]
+    },
+    "summary": {
+      "en": [
+        "Little Red Riding Hood."
+      ]
+    },
+    "thumbnail": [
+      {
+        "id": "https://staging.discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001/622,2788,2552,2194/500,/0/default.jpg",
+        "type": "Image",
+        "height": 500,
+        "width": 500
+      }
+    ],
+    "items": [
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0001",
+        "type": "Canvas",
+        "height": 6299,
+        "width": 4064,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001/full/127,196/0/default.jpg",
+            "type": "Image",
+            "height": 196,
+            "width": 127,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 2032,
+                    "height": 3149
+                  },
+                  {
+                    "width": 1016,
+                    "height": 1574
+                  },
+                  {
+                    "width": 508,
+                    "height": 787
+                  },
+                  {
+                    "width": 254,
+                    "height": 393
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 2032,
+                "height": 3149
+              },
+              {
+                "width": 1016,
+                "height": 1574
+              },
+              {
+                "width": 508,
+                "height": 787
+              },
+              {
+                "width": 254,
+                "height": 393
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0001/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0001/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0001",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 6299,
+                  "width": 4064,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0001",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 2032,
+                          "height": 3149
+                        },
+                        {
+                          "width": 1016,
+                          "height": 1574
+                        },
+                        {
+                          "width": 508,
+                          "height": 787
+                        },
+                        {
+                          "width": 254,
+                          "height": 393
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0002",
+        "type": "Canvas",
+        "height": 4961,
+        "width": 6299,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0002/full/98,77/0/default.jpg",
+            "type": "Image",
+            "height": 77,
+            "width": 98,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0002",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 3149,
+                    "height": 2480
+                  },
+                  {
+                    "width": 1574,
+                    "height": 1240
+                  },
+                  {
+                    "width": 787,
+                    "height": 620
+                  },
+                  {
+                    "width": 393,
+                    "height": 310
+                  },
+                  {
+                    "width": 196,
+                    "height": 155
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0002",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 3149,
+                "height": 2480
+              },
+              {
+                "width": 1574,
+                "height": 1240
+              },
+              {
+                "width": 787,
+                "height": 620
+              },
+              {
+                "width": 393,
+                "height": 310
+              },
+              {
+                "width": 196,
+                "height": 155
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0002/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0002/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0002",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0002/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 4961,
+                  "width": 6299,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0002",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 3149,
+                          "height": 2480
+                        },
+                        {
+                          "width": 1574,
+                          "height": 1240
+                        },
+                        {
+                          "width": 787,
+                          "height": 620
+                        },
+                        {
+                          "width": 393,
+                          "height": 310
+                        },
+                        {
+                          "width": 196,
+                          "height": 155
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0003",
+        "type": "Canvas",
+        "height": 4961,
+        "width": 6299,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0003/full/98,77/0/default.jpg",
+            "type": "Image",
+            "height": 77,
+            "width": 98,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0003",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 3149,
+                    "height": 2480
+                  },
+                  {
+                    "width": 1574,
+                    "height": 1240
+                  },
+                  {
+                    "width": 787,
+                    "height": 620
+                  },
+                  {
+                    "width": 393,
+                    "height": 310
+                  },
+                  {
+                    "width": 196,
+                    "height": 155
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0003",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 3149,
+                "height": 2480
+              },
+              {
+                "width": 1574,
+                "height": 1240
+              },
+              {
+                "width": 787,
+                "height": 620
+              },
+              {
+                "width": 393,
+                "height": 310
+              },
+              {
+                "width": 196,
+                "height": 155
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0003/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0003/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0003",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0003/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 4961,
+                  "width": 6299,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0003",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 3149,
+                          "height": 2480
+                        },
+                        {
+                          "width": 1574,
+                          "height": 1240
+                        },
+                        {
+                          "width": 787,
+                          "height": 620
+                        },
+                        {
+                          "width": 393,
+                          "height": 310
+                        },
+                        {
+                          "width": 196,
+                          "height": 155
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0004",
+        "type": "Canvas",
+        "height": 4961,
+        "width": 6299,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0004/full/98,77/0/default.jpg",
+            "type": "Image",
+            "height": 77,
+            "width": 98,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0004",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 3149,
+                    "height": 2480
+                  },
+                  {
+                    "width": 1574,
+                    "height": 1240
+                  },
+                  {
+                    "width": 787,
+                    "height": 620
+                  },
+                  {
+                    "width": 393,
+                    "height": 310
+                  },
+                  {
+                    "width": 196,
+                    "height": 155
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0004",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 3149,
+                "height": 2480
+              },
+              {
+                "width": 1574,
+                "height": 1240
+              },
+              {
+                "width": 787,
+                "height": 620
+              },
+              {
+                "width": 393,
+                "height": 310
+              },
+              {
+                "width": 196,
+                "height": 155
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0004/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0004/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0004",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0004/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 4961,
+                  "width": 6299,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0004",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 3149,
+                          "height": 2480
+                        },
+                        {
+                          "width": 1574,
+                          "height": 1240
+                        },
+                        {
+                          "width": 787,
+                          "height": 620
+                        },
+                        {
+                          "width": 393,
+                          "height": 310
+                        },
+                        {
+                          "width": 196,
+                          "height": 155
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0005",
+        "type": "Canvas",
+        "height": 4961,
+        "width": 6299,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0005/full/98,77/0/default.jpg",
+            "type": "Image",
+            "height": 77,
+            "width": 98,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0005",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 3149,
+                    "height": 2480
+                  },
+                  {
+                    "width": 1574,
+                    "height": 1240
+                  },
+                  {
+                    "width": 787,
+                    "height": 620
+                  },
+                  {
+                    "width": 393,
+                    "height": 310
+                  },
+                  {
+                    "width": 196,
+                    "height": 155
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0005",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 3149,
+                "height": 2480
+              },
+              {
+                "width": 1574,
+                "height": 1240
+              },
+              {
+                "width": 787,
+                "height": 620
+              },
+              {
+                "width": 393,
+                "height": 310
+              },
+              {
+                "width": 196,
+                "height": 155
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0005/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0005/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0005",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0005/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 4961,
+                  "width": 6299,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0005",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 3149,
+                          "height": 2480
+                        },
+                        {
+                          "width": 1574,
+                          "height": 1240
+                        },
+                        {
+                          "width": 787,
+                          "height": 620
+                        },
+                        {
+                          "width": 393,
+                          "height": 310
+                        },
+                        {
+                          "width": 196,
+                          "height": 155
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0006",
+        "type": "Canvas",
+        "height": 4961,
+        "width": 6299,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0006/full/98,77/0/default.jpg",
+            "type": "Image",
+            "height": 77,
+            "width": 98,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0006",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 3149,
+                    "height": 2480
+                  },
+                  {
+                    "width": 1574,
+                    "height": 1240
+                  },
+                  {
+                    "width": 787,
+                    "height": 620
+                  },
+                  {
+                    "width": 393,
+                    "height": 310
+                  },
+                  {
+                    "width": 196,
+                    "height": 155
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0006",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 3149,
+                "height": 2480
+              },
+              {
+                "width": 1574,
+                "height": 1240
+              },
+              {
+                "width": 787,
+                "height": 620
+              },
+              {
+                "width": 393,
+                "height": 310
+              },
+              {
+                "width": 196,
+                "height": 155
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0006/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0006/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0006",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0006/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 4961,
+                  "width": 6299,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0006",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 3149,
+                          "height": 2480
+                        },
+                        {
+                          "width": 1574,
+                          "height": 1240
+                        },
+                        {
+                          "width": 787,
+                          "height": 620
+                        },
+                        {
+                          "width": 393,
+                          "height": 310
+                        },
+                        {
+                          "width": 196,
+                          "height": 155
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0007",
+        "type": "Canvas",
+        "height": 6299,
+        "width": 3384,
+        "label": {
+          "en": [
+            "Little Red Riding Hood"
+          ]
+        },
+        "metadata": [
+          {
+            "label": {
+              "en": [
+                "Image Title"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Summary"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood."
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Subject"
+              ]
+            },
+            "value": {
+              "en": [
+                "Little Red Riding Hood (Tale); Chapbooks, English--Specimens; Fairy tales"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Publisher"
+              ]
+            },
+            "value": {
+              "en": [
+                "Yorkshire JS Publishing & Stationery Co"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Mediator"
+              ]
+            },
+            "value": {
+              "en": [
+                "University of York, Raymond Burton Yorkshire Collection"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Identifier"
+              ]
+            },
+            "value": {
+              "en": [
+                "9952973300001381"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Date"
+              ]
+            },
+            "value": {
+              "en": [
+                "[18--]"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Type"
+              ]
+            },
+            "value": {
+              "en": [
+                "Book"
+              ]
+            }
+          },
+          {
+            "label": {
+              "en": [
+                "Medium"
+              ]
+            },
+            "value": {
+              "en": [
+                "image/tiff"
+              ]
+            }
+          }
+        ],
+        "thumbnail": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0007/full/105,196/0/default.jpg",
+            "type": "Image",
+            "height": 196,
+            "width": 105,
+            "service": [
+              {
+                "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0007",
+                "type": "ImageService3",
+                "profile": "level2",
+                "sizes": [
+                  {
+                    "width": 1692,
+                    "height": 3149
+                  },
+                  {
+                    "width": 846,
+                    "height": 1574
+                  },
+                  {
+                    "width": 423,
+                    "height": 787
+                  },
+                  {
+                    "width": 211,
+                    "height": 393
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "service": [
+          {
+            "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0007",
+            "type": "ImageService3",
+            "profile": "level2",
+            "sizes": [
+              {
+                "width": 1692,
+                "height": 3149
+              },
+              {
+                "width": 846,
+                "height": 1574
+              },
+              {
+                "width": 423,
+                "height": 787
+              },
+              {
+                "width": 211,
+                "height": 393
+              }
+            ]
+          }
+        ],
+        "items": [
+          {
+            "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0007/annotation-page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0007/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "target": "https://discover.york.ac.uk/ark:/36941/9952973300001381/presentation/3/canvas/9952973300001381_0007",
+                "body": {
+                  "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0007/full/max/0/default.jpg",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 6299,
+                  "width": 3384,
+                  "service": [
+                    {
+                      "id": "https://discover.york.ac.uk/iiif/3/ark:/36941/9952973300001381/objects/9952973300001381_0007",
+                      "type": "ImageService3",
+                      "profile": "level2",
+                      "sizes": [
+                        {
+                          "width": 1692,
+                          "height": 3149
+                        },
+                        {
+                          "width": 846,
+                          "height": 1574
+                        },
+                        {
+                          "width": 423,
+                          "height": 787
+                        },
+                        {
+                          "width": 211,
+                          "height": 393
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

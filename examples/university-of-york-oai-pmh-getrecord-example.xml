@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  generated: 2026-08-30
+  method: probed
+  source: https://pure.york.ac.uk/ws/oai?verb=GetRecord&amp;metadataPrefix=oai_dc&amp;identifier=oai:https://pure.york.ac.uk/:publications/d5ff166f-d255-4cab-9688-253729e80ee0
+  description: Verbatim OAI-PMH 2.0 GetRecord response (oai_dc) from the University of York research portal.
+  response: HTTP 200 application/xml
+-->
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-08-30T20:50:47Z</responseDate>
+  <request identifier="oai:https://pure.york.ac.uk/:publications/d5ff166f-d255-4cab-9688-253729e80ee0" metadataPrefix="oai_dc" verb="GetRecord">https://pure.york.ac.uk/ws/oai</request>
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>oai:https://pure.york.ac.uk/:publications/d5ff166f-d255-4cab-9688-253729e80ee0</identifier>
+        <datestamp>2025-09-19T08:17:56Z</datestamp>
+        <setSpec>publications:all</setSpec>
+        <setSpec>publications:year2010</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:dct="http://purl.org/dc/terms/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title xml:lang="eng">Constraints on adaptation:Explaining deviation from optimal sex ratio using artificial neural networks</dc:title>
+          <dc:creator>Lewis, Hannah Marie</dc:creator>
+          <dc:creator>Tosh, C. R.</dc:creator>
+          <dc:creator>O'Keefe, S.</dc:creator>
+          <dc:creator>Shuker, D. M.</dc:creator>
+          <dc:creator>West, S. A.</dc:creator>
+          <dc:creator>Mayhew, P. J.</dc:creator>
+          <dc:subject xml:lang="eng">adaptation</dc:subject>
+          <dc:subject xml:lang="eng">artificial neural networks</dc:subject>
+          <dc:subject xml:lang="eng">evolutionary constraints</dc:subject>
+          <dc:subject xml:lang="eng">parasitoid</dc:subject>
+          <dc:subject xml:lang="eng">sex ratio theory</dc:subject>
+          <dc:subject xml:lang="eng">threshold traits</dc:subject>
+          <dc:subject xml:lang="eng">LOCAL MATE COMPETITION</dc:subject>
+          <dc:subject xml:lang="eng">PARASITIC WASP</dc:subject>
+          <dc:subject xml:lang="eng">NASONIA-VITRIPENNIS</dc:subject>
+          <dc:subject xml:lang="eng">COMPARATIVE BIOLOGY</dc:subject>
+          <dc:subject xml:lang="eng">NATURAL-SELECTION</dc:subject>
+          <dc:subject xml:lang="eng">EVOLUTION</dc:subject>
+          <dc:subject xml:lang="eng">INFORMATION</dc:subject>
+          <dc:subject xml:lang="eng">ALLOCATION</dc:subject>
+          <dc:subject xml:lang="eng">BEHAVIOR</dc:subject>
+          <dc:subject xml:lang="eng">RECOGNITION</dc:subject>
+          <dc:description xml:lang="eng">&lt;p&gt;Determining processes constraining adaptation is a major challenge facing evolutionary biology, and sex allocation has proved a useful model system for exploring different constraints. We investigate the evolution of suboptimal sex allocation in a solitary parasitoid wasp system by modelling information acquisition and processing using artificial neural networks (ANNs) evolving according to a genetic algorithm. Theory predicts an instantaneous switch from the production of male to female offspring with increasing host size, whereas data show gradual changes. We found that simple ANNs evolved towards producing sharp switches in sex ratio, but additional biologically reasonable assumptions of costs of synapse maintenance, and simplification of the ANNs, led to more gradual adjustment. Switch sharpness was robust to uncertainty in fitness consequences of host size, challenging interpretations of previous empirical findings. Our results also question some intuitive hypotheses concerning the evolution of threshold traits and confirm how neural processing may constrain adaptive behaviour.&lt;/p&gt;</dc:description>
+          <dc:date>2010-08</dc:date>
+          <dc:type>article</dc:type>
+          <dc:identifier>https://pure.york.ac.uk/portal/en/publications/d5ff166f-d255-4cab-9688-253729e80ee0</dc:identifier>
+          <dc:identifier type="doi">https://doi.org/10.1111/j.1420-9101.2010.02038.x</dc:identifier>
+          <dc:identifier type="/dk/atira/pure/links/researchoutput/scopuspublication">http://www.scopus.com/inward/record.url?scp=77954691767&amp;partnerID=8YFLogxK</dc:identifier>
+          <dc:source>Lewis, H M, Tosh, C R, O'Keefe, S, Shuker, D M, West, S A &amp; Mayhew, P J 2010, 'Constraints on adaptation : Explaining deviation from optimal sex ratio using artificial neural networks', Journal of evolutionary biology, vol. 23, no. 8, pp. 1708-1719. https://doi.org/10.1111/j.1420-9101.2010.02038.x</dc:source>
+          <dc:language xsi:type="dct:ISO639-2">eng</dc:language>
+          <dc:rights>info:eu-repo/semantics/restrictedAccess</dc:rights>
+          <dct:isPartOf>urn:ISSN:1010-061X</dct:isPartOf>
+          <ns5:funder xmlns:ns5="http://docs.rioxx.net/schema/v1.0/rioxxterms/"></ns5:funder>
+          <ns5:projectid xmlns:ns5="http://docs.rioxx.net/schema/v1.0/rioxxterms/">BB/E013430/1</ns5:projectid>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+  </GetRecord>
+</OAI-PMH>
