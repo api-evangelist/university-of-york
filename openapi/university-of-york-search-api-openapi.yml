@@ -97,6 +97,91 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      type: object
+      description: Error body observed on HTTP 400.
+      properties:
+        error:
+          type: string
+          example: 'parsing_exception: [parsing_exception] Reason: Unknown key for a VALUE_NULL in [size].'
+    SearchResponse:
+      type: object
+      description: Elasticsearch search response envelope, reproduced as returned.
+      properties:
+        took:
+          type: integer
+          description: Query time in milliseconds.
+        timed_out:
+          type: boolean
+        _shards:
+          type: object
+          properties:
+            total:
+              type: integer
+            successful:
+              type: integer
+            skipped:
+              type: integer
+            failed:
+              type: integer
+        hits:
+          type: object
+          properties:
+            total:
+              type: object
+              properties:
+                value:
+                  type: integer
+                  example: 415165
+                relation:
+                  type: string
+                  example: eq
+            max_score:
+              type:
+              - number
+              - 'null'
+            hits:
+              type: array
+              items:
+                $ref: '#/components/schemas/Hit'
+        aggregations:
+          type: object
+          description: Terms aggregations. /api/search-simple returns aggs_type, aggs_main_collection_title, aggs_work_type and aggs_creator; /api/search returns aggs_type, aggs_work_type, aggs_creator and aggs_main_collection_name.
+          additionalProperties:
+            $ref: '#/components/schemas/Aggregation'
+    Aggregation:
+      type: object
+      properties:
+        doc_count_error_upper_bound:
+          type: integer
+        sum_other_doc_count:
+          type: integer
+        buckets:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+                example: item
+              doc_count:
+                type: integer
+                example: 87571
+    Hit:
+      type: object
+      properties:
+        _index:
+          type: string
+          example: discover-index
+        _id:
+          type: string
+          example: ark:/36941/806938/objects/17061
+        _score:
+          type:
+          - number
+          - 'null'
+        _source:
+          $ref: '#/components/schemas/CollectionItem'
     CollectionItem:
       type: object
       description: One indexed digital-collections record. `id` is an ARK-based identifier under the University of York's NAAN 36941, which is also the IIIF Image API identifier.
@@ -218,91 +303,6 @@ components:
           type: string
         aggs_ar_referenced_by:
           type: string
-    Hit:
-      type: object
-      properties:
-        _index:
-          type: string
-          example: discover-index
-        _id:
-          type: string
-          example: ark:/36941/806938/objects/17061
-        _score:
-          type:
-          - number
-          - 'null'
-        _source:
-          $ref: '#/components/schemas/CollectionItem'
-    Aggregation:
-      type: object
-      properties:
-        doc_count_error_upper_bound:
-          type: integer
-        sum_other_doc_count:
-          type: integer
-        buckets:
-          type: array
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-                example: item
-              doc_count:
-                type: integer
-                example: 87571
-    SearchResponse:
-      type: object
-      description: Elasticsearch search response envelope, reproduced as returned.
-      properties:
-        took:
-          type: integer
-          description: Query time in milliseconds.
-        timed_out:
-          type: boolean
-        _shards:
-          type: object
-          properties:
-            total:
-              type: integer
-            successful:
-              type: integer
-            skipped:
-              type: integer
-            failed:
-              type: integer
-        hits:
-          type: object
-          properties:
-            total:
-              type: object
-              properties:
-                value:
-                  type: integer
-                  example: 415165
-                relation:
-                  type: string
-                  example: eq
-            max_score:
-              type:
-              - number
-              - 'null'
-            hits:
-              type: array
-              items:
-                $ref: '#/components/schemas/Hit'
-        aggregations:
-          type: object
-          description: Terms aggregations. /api/search-simple returns aggs_type, aggs_main_collection_title, aggs_work_type and aggs_creator; /api/search returns aggs_type, aggs_work_type, aggs_creator and aggs_main_collection_name.
-          additionalProperties:
-            $ref: '#/components/schemas/Aggregation'
-    Error:
-      type: object
-      description: Error body observed on HTTP 400.
-      properties:
-        error:
-          type: string
-          example: 'parsing_exception: [parsing_exception] Reason: Unknown key for a VALUE_NULL in [size].'
   parameters:
     Page:
       name: page
@@ -312,14 +312,6 @@ components:
         type: integer
         minimum: 1
         default: 1
-    Size:
-      name: size
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        default: 12
     Q:
       name: q
       in: query
@@ -332,6 +324,14 @@ components:
       required: false
       schema:
         type: string
+    Size:
+      name: size
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 12
 x-operator: institution
 x-provenance:
   method: probed

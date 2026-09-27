@@ -85,26 +85,6 @@ components:
         type: string
       example: uoy-logo
   schemas:
-    Canvas:
-      type: object
-      description: IIIF Presentation API 3.0 Canvas.
-      properties:
-        id:
-          type: string
-          format: uri
-        type:
-          type: string
-          const: Canvas
-        label:
-          $ref: '#/components/schemas/LanguageMap'
-        height:
-          type: integer
-        width:
-          type: integer
-        items:
-          type: array
-          items:
-            type: object
     LanguageMap:
       type: object
       description: IIIF language map — BCP 47 language tag (or "none") to an array of strings.
@@ -151,6 +131,26 @@ components:
           description: Canvases.
           items:
             $ref: '#/components/schemas/Canvas'
+    Canvas:
+      type: object
+      description: IIIF Presentation API 3.0 Canvas.
+      properties:
+        id:
+          type: string
+          format: uri
+        type:
+          type: string
+          const: Canvas
+        label:
+          $ref: '#/components/schemas/LanguageMap'
+        height:
+          type: integer
+        width:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
 x-operator: institution
 x-provenance:
   method: probed

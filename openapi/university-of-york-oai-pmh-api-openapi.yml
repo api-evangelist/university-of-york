@@ -110,63 +110,6 @@ components:
           type: array
           items:
             type: string
-    DublinCore:
-      type: object
-      description: Simple Dublin Core (oai_dc). Elements are repeatable; xml:lang is present on this deployment.
-      properties:
-        title:
-          type: array
-          items:
-            type: string
-        creator:
-          type: array
-          items:
-            type: string
-        subject:
-          type: array
-          items:
-            type: string
-        description:
-          type: array
-          items:
-            type: string
-        publisher:
-          type: array
-          items:
-            type: string
-        date:
-          type: array
-          items:
-            type: string
-        type:
-          type: array
-          items:
-            type: string
-        identifier:
-          type: array
-          items:
-            type: string
-          example:
-          - https://pure.york.ac.uk/portal/en/publications/d5ff166f-d255-4cab-9688-253729e80ee0
-        relation:
-          type: array
-          items:
-            type: string
-        language:
-          type: array
-          items:
-            type: string
-    Record:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/RecordHeader'
-        metadata:
-          type: object
-          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
-          properties:
-            dc:
-              $ref: '#/components/schemas/DublinCore'
     Set:
       type: object
       properties:
@@ -176,34 +119,6 @@ components:
         setName:
           type: string
           example: PURE publications
-    Identify:
-      type: object
-      description: Repository description, as returned by this deployment on 2026-08-30.
-      properties:
-        repositoryName:
-          type: string
-          const: The University of York
-        baseURL:
-          type: string
-          format: uri
-          const: https://pure.york.ac.uk/ws/oai
-        protocolVersion:
-          type: string
-          const: '2.0'
-        adminEmail:
-          type: string
-          format: email
-          const: pure-support@york.ac.uk
-        earliestDatestamp:
-          type: string
-          format: date-time
-          example: '2014-10-14T11:47:31Z'
-        deletedRecord:
-          type: string
-          const: 'no'
-        granularity:
-          type: string
-          const: YYYY-MM-DDThh:mm:ssZ
     OAIError:
       type: object
       description: OAI-PMH protocol error, returned with HTTP 200. badVerb and badArgument confirmed live.
@@ -233,6 +148,17 @@ components:
         metadataNamespace:
           type: string
           format: uri
+    Record:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/RecordHeader'
+        metadata:
+          type: object
+          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
+          properties:
+            dc:
+              $ref: '#/components/schemas/DublinCore'
     OAIPMHResponse:
       type: object
       description: Root OAI-PMH 2.0 response envelope.
@@ -285,6 +211,80 @@ components:
               $ref: '#/components/schemas/Record'
         error:
           $ref: '#/components/schemas/OAIError'
+    Identify:
+      type: object
+      description: Repository description, as returned by this deployment on 2026-08-30.
+      properties:
+        repositoryName:
+          type: string
+          const: The University of York
+        baseURL:
+          type: string
+          format: uri
+          const: https://pure.york.ac.uk/ws/oai
+        protocolVersion:
+          type: string
+          const: '2.0'
+        adminEmail:
+          type: string
+          format: email
+          const: pure-support@york.ac.uk
+        earliestDatestamp:
+          type: string
+          format: date-time
+          example: '2014-10-14T11:47:31Z'
+        deletedRecord:
+          type: string
+          const: 'no'
+        granularity:
+          type: string
+          const: YYYY-MM-DDThh:mm:ssZ
+    DublinCore:
+      type: object
+      description: Simple Dublin Core (oai_dc). Elements are repeatable; xml:lang is present on this deployment.
+      properties:
+        title:
+          type: array
+          items:
+            type: string
+        creator:
+          type: array
+          items:
+            type: string
+        subject:
+          type: array
+          items:
+            type: string
+        description:
+          type: array
+          items:
+            type: string
+        publisher:
+          type: array
+          items:
+            type: string
+        date:
+          type: array
+          items:
+            type: string
+        type:
+          type: array
+          items:
+            type: string
+        identifier:
+          type: array
+          items:
+            type: string
+          example:
+          - https://pure.york.ac.uk/portal/en/publications/d5ff166f-d255-4cab-9688-253729e80ee0
+        relation:
+          type: array
+          items:
+            type: string
+        language:
+          type: array
+          items:
+            type: string
 x-operator: institution
 x-operator-note: Host pure.york.ac.uk is under york.ac.uk and the Identify response self-identifies as "The University of York". The underlying product is Elsevier Pure; its proprietary REST API is recorded separately as a tenant relationship and its contract is NOT saved here.
 x-provenance:

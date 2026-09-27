@@ -400,8 +400,8 @@ apis:
 - aid: university-of-york:university-of-york-oai-pmh-api
   name: University of York OAI PMH API
   description: Open Archives Initiative Protocol for Metadata Harvesting 2.0.
-  humanURL: https://discover.york.ac.uk/
-  baseURL: https://discover.york.ac.uk
+  humanURL: https://pure.york.ac.uk/portal/
+  baseURL: https://pure.york.ac.uk/ws/oai
   tags:
   - OAI-PMH
   properties:
