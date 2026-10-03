@@ -68,6 +68,13 @@ paths:
                 $ref: '#/components/schemas/Canvas'
 components:
   parameters:
+    ObjectId:
+      name: objectId
+      in: path
+      required: true
+      schema:
+        type: string
+      example: uoy-logo
     Naan:
       name: naan
       in: path
@@ -77,24 +84,7 @@ components:
         type: string
         default: '36941'
       example: '36941'
-    ObjectId:
-      name: objectId
-      in: path
-      required: true
-      schema:
-        type: string
-      example: uoy-logo
   schemas:
-    LanguageMap:
-      type: object
-      description: IIIF language map — BCP 47 language tag (or "none") to an array of strings.
-      additionalProperties:
-        type: array
-        items:
-          type: string
-      example:
-        en:
-        - Little Red Riding Hood
     Manifest:
       type: object
       description: IIIF Presentation API 3.0 Manifest, with the properties observed on this deployment.
@@ -151,6 +141,16 @@ components:
           type: array
           items:
             type: object
+    LanguageMap:
+      type: object
+      description: IIIF language map — BCP 47 language tag (or "none") to an array of strings.
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      example:
+        en:
+        - Little Red Riding Hood
 x-operator: institution
 x-provenance:
   method: probed

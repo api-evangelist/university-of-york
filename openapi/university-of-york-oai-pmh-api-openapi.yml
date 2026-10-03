@@ -98,67 +98,6 @@ paths:
                 $ref: '#/components/schemas/OAIPMHResponse'
 components:
   schemas:
-    RecordHeader:
-      type: object
-      properties:
-        identifier:
-          type: string
-        datestamp:
-          type: string
-          format: date-time
-        setSpec:
-          type: array
-          items:
-            type: string
-    Set:
-      type: object
-      properties:
-        setSpec:
-          type: string
-          example: publications:all
-        setName:
-          type: string
-          example: PURE publications
-    OAIError:
-      type: object
-      description: OAI-PMH protocol error, returned with HTTP 200. badVerb and badArgument confirmed live.
-      properties:
-        code:
-          type: string
-          enum:
-          - badArgument
-          - badResumptionToken
-          - badVerb
-          - cannotDisseminateFormat
-          - idDoesNotExist
-          - noRecordsMatch
-          - noMetadataFormats
-          - noSetHierarchy
-        message:
-          type: string
-    MetadataFormat:
-      type: object
-      properties:
-        metadataPrefix:
-          type: string
-          example: oai_dc
-        schema:
-          type: string
-          format: uri
-        metadataNamespace:
-          type: string
-          format: uri
-    Record:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/RecordHeader'
-        metadata:
-          type: object
-          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
-          properties:
-            dc:
-              $ref: '#/components/schemas/DublinCore'
     OAIPMHResponse:
       type: object
       description: Root OAI-PMH 2.0 response envelope.
@@ -211,34 +150,15 @@ components:
               $ref: '#/components/schemas/Record'
         error:
           $ref: '#/components/schemas/OAIError'
-    Identify:
+    Set:
       type: object
-      description: Repository description, as returned by this deployment on 2026-08-30.
       properties:
-        repositoryName:
+        setSpec:
           type: string
-          const: The University of York
-        baseURL:
+          example: publications:all
+        setName:
           type: string
-          format: uri
-          const: https://pure.york.ac.uk/ws/oai
-        protocolVersion:
-          type: string
-          const: '2.0'
-        adminEmail:
-          type: string
-          format: email
-          const: pure-support@york.ac.uk
-        earliestDatestamp:
-          type: string
-          format: date-time
-          example: '2014-10-14T11:47:31Z'
-        deletedRecord:
-          type: string
-          const: 'no'
-        granularity:
-          type: string
-          const: YYYY-MM-DDThh:mm:ssZ
+          example: PURE publications
     DublinCore:
       type: object
       description: Simple Dublin Core (oai_dc). Elements are repeatable; xml:lang is present on this deployment.
@@ -285,6 +205,86 @@ components:
           type: array
           items:
             type: string
+    MetadataFormat:
+      type: object
+      properties:
+        metadataPrefix:
+          type: string
+          example: oai_dc
+        schema:
+          type: string
+          format: uri
+        metadataNamespace:
+          type: string
+          format: uri
+    OAIError:
+      type: object
+      description: OAI-PMH protocol error, returned with HTTP 200. badVerb and badArgument confirmed live.
+      properties:
+        code:
+          type: string
+          enum:
+          - badArgument
+          - badResumptionToken
+          - badVerb
+          - cannotDisseminateFormat
+          - idDoesNotExist
+          - noRecordsMatch
+          - noMetadataFormats
+          - noSetHierarchy
+        message:
+          type: string
+    Record:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/RecordHeader'
+        metadata:
+          type: object
+          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
+          properties:
+            dc:
+              $ref: '#/components/schemas/DublinCore'
+    RecordHeader:
+      type: object
+      properties:
+        identifier:
+          type: string
+        datestamp:
+          type: string
+          format: date-time
+        setSpec:
+          type: array
+          items:
+            type: string
+    Identify:
+      type: object
+      description: Repository description, as returned by this deployment on 2026-08-30.
+      properties:
+        repositoryName:
+          type: string
+          const: The University of York
+        baseURL:
+          type: string
+          format: uri
+          const: https://pure.york.ac.uk/ws/oai
+        protocolVersion:
+          type: string
+          const: '2.0'
+        adminEmail:
+          type: string
+          format: email
+          const: pure-support@york.ac.uk
+        earliestDatestamp:
+          type: string
+          format: date-time
+          example: '2014-10-14T11:47:31Z'
+        deletedRecord:
+          type: string
+          const: 'no'
+        granularity:
+          type: string
+          const: YYYY-MM-DDThh:mm:ssZ
 x-operator: institution
 x-operator-note: Host pure.york.ac.uk is under york.ac.uk and the Identify response self-identifies as "The University of York". The underlying product is Elsevier Pure; its proprietary REST API is recorded separately as a tenant relationship and its contract is NOT saved here.
 x-provenance:
