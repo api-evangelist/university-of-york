@@ -133,6 +133,16 @@ paths:
                 $ref: '#/components/schemas/S3Error'
 components:
   schemas:
+    S3Error:
+      type: object
+      description: Object-store error surfaced verbatim for unknown identifiers.
+      properties:
+        Code:
+          type: string
+          example: AccessDenied
+        Message:
+          type: string
+          example: Access Denied
     ImageService3:
       type: object
       description: IIIF Image API 3.0 image information document, as served.
@@ -219,16 +229,6 @@ components:
           - color
           - gray
           - bitonal
-    S3Error:
-      type: object
-      description: Object-store error surfaced verbatim for unknown identifiers.
-      properties:
-        Code:
-          type: string
-          example: AccessDenied
-        Message:
-          type: string
-          example: Access Denied
   parameters:
     ObjectId:
       name: objectId
@@ -237,14 +237,6 @@ components:
       schema:
         type: string
       example: uoy-logo
-    CollectionId:
-      name: collectionId
-      in: path
-      required: true
-      description: ARK collection segment. Observed values include numeric object-group ids and the literal "common" for site assets.
-      schema:
-        type: string
-      example: common
     Naan:
       name: naan
       in: path
@@ -254,6 +246,14 @@ components:
         type: string
         default: '36941'
       example: '36941'
+    CollectionId:
+      name: collectionId
+      in: path
+      required: true
+      description: ARK collection segment. Observed values include numeric object-group ids and the literal "common" for site assets.
+      schema:
+        type: string
+      example: common
 x-operator: institution
 x-provenance:
   method: probed
