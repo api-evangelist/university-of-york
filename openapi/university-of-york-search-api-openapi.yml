@@ -96,35 +96,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
-  parameters:
-    Page:
-      name: page
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    Size:
-      name: size
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        default: 12
-    Q:
-      name: q
-      in: query
-      required: false
-      schema:
-        type: string
-    Collection:
-      name: collection
-      in: query
-      required: false
-      schema:
-        type: string
   schemas:
     CollectionItem:
       type: object
@@ -265,28 +236,6 @@ components:
               doc_count:
                 type: integer
                 example: 87571
-    Hit:
-      type: object
-      properties:
-        _index:
-          type: string
-          example: discover-index
-        _id:
-          type: string
-          example: ark:/36941/806938/objects/17061
-        _score:
-          type:
-          - number
-          - 'null'
-        _source:
-          $ref: '#/components/schemas/CollectionItem'
-    Error:
-      type: object
-      description: Error body observed on HTTP 400.
-      properties:
-        error:
-          type: string
-          example: 'parsing_exception: [parsing_exception] Reason: Unknown key for a VALUE_NULL in [size].'
     SearchResponse:
       type: object
       description: Elasticsearch search response envelope, reproduced as returned.
@@ -332,6 +281,57 @@ components:
           description: Terms aggregations. /api/search-simple returns aggs_type, aggs_main_collection_title, aggs_work_type and aggs_creator; /api/search returns aggs_type, aggs_work_type, aggs_creator and aggs_main_collection_name.
           additionalProperties:
             $ref: '#/components/schemas/Aggregation'
+    Error:
+      type: object
+      description: Error body observed on HTTP 400.
+      properties:
+        error:
+          type: string
+          example: 'parsing_exception: [parsing_exception] Reason: Unknown key for a VALUE_NULL in [size].'
+    Hit:
+      type: object
+      properties:
+        _index:
+          type: string
+          example: discover-index
+        _id:
+          type: string
+          example: ark:/36941/806938/objects/17061
+        _score:
+          type:
+          - number
+          - 'null'
+        _source:
+          $ref: '#/components/schemas/CollectionItem'
+  parameters:
+    Q:
+      name: q
+      in: query
+      required: false
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Size:
+      name: size
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 12
+    Collection:
+      name: collection
+      in: query
+      required: false
+      schema:
+        type: string
 x-operator: institution
 x-provenance:
   method: probed

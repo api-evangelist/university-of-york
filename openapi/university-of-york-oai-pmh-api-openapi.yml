@@ -98,15 +98,6 @@ paths:
                 $ref: '#/components/schemas/OAIPMHResponse'
 components:
   schemas:
-    Set:
-      type: object
-      properties:
-        setSpec:
-          type: string
-          example: publications:all
-        setName:
-          type: string
-          example: PURE publications
     Identify:
       type: object
       description: Repository description, as returned by this deployment on 2026-08-30.
@@ -135,23 +126,18 @@ components:
         granularity:
           type: string
           const: YYYY-MM-DDThh:mm:ssZ
-    OAIError:
+    MetadataFormat:
       type: object
-      description: OAI-PMH protocol error, returned with HTTP 200. badVerb and badArgument confirmed live.
       properties:
-        code:
+        metadataPrefix:
           type: string
-          enum:
-          - badArgument
-          - badResumptionToken
-          - badVerb
-          - cannotDisseminateFormat
-          - idDoesNotExist
-          - noRecordsMatch
-          - noMetadataFormats
-          - noSetHierarchy
-        message:
+          example: oai_dc
+        schema:
           type: string
+          format: uri
+        metadataNamespace:
+          type: string
+          format: uri
     OAIPMHResponse:
       type: object
       description: Root OAI-PMH 2.0 response envelope.
@@ -204,18 +190,55 @@ components:
               $ref: '#/components/schemas/Record'
         error:
           $ref: '#/components/schemas/OAIError'
-    MetadataFormat:
+    OAIError:
+      type: object
+      description: OAI-PMH protocol error, returned with HTTP 200. badVerb and badArgument confirmed live.
+      properties:
+        code:
+          type: string
+          enum:
+          - badArgument
+          - badResumptionToken
+          - badVerb
+          - cannotDisseminateFormat
+          - idDoesNotExist
+          - noRecordsMatch
+          - noMetadataFormats
+          - noSetHierarchy
+        message:
+          type: string
+    RecordHeader:
       type: object
       properties:
-        metadataPrefix:
+        identifier:
           type: string
-          example: oai_dc
-        schema:
+        datestamp:
           type: string
-          format: uri
-        metadataNamespace:
+          format: date-time
+        setSpec:
+          type: array
+          items:
+            type: string
+    Set:
+      type: object
+      properties:
+        setSpec:
           type: string
-          format: uri
+          example: publications:all
+        setName:
+          type: string
+          example: PURE publications
+    Record:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/RecordHeader'
+        metadata:
+          type: object
+          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
+          properties:
+            dc:
+              $ref: '#/components/schemas/DublinCore'
     DublinCore:
       type: object
       description: Simple Dublin Core (oai_dc). Elements are repeatable; xml:lang is present on this deployment.
@@ -259,29 +282,6 @@ components:
           items:
             type: string
         language:
-          type: array
-          items:
-            type: string
-    Record:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/RecordHeader'
-        metadata:
-          type: object
-          description: Payload in the requested metadataPrefix. For oai_dc this is a simple Dublin Core element set; for mods it is MODS, which additionally carries mods:identifier type="doi" and mods:nameIdentifier type="orcid".
-          properties:
-            dc:
-              $ref: '#/components/schemas/DublinCore'
-    RecordHeader:
-      type: object
-      properties:
-        identifier:
-          type: string
-        datestamp:
-          type: string
-          format: date-time
-        setSpec:
           type: array
           items:
             type: string

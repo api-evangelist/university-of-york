@@ -132,6 +132,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/S3Error'
 components:
+  parameters:
+    CollectionId:
+      name: collectionId
+      in: path
+      required: true
+      description: ARK collection segment. Observed values include numeric object-group ids and the literal "common" for site assets.
+      schema:
+        type: string
+      example: common
+    ObjectId:
+      name: objectId
+      in: path
+      required: true
+      schema:
+        type: string
+      example: uoy-logo
+    Naan:
+      name: naan
+      in: path
+      required: true
+      description: ARK Name Assigning Authority Number. The University of York's is 36941.
+      schema:
+        type: string
+        default: '36941'
+      example: '36941'
   schemas:
     S3Error:
       type: object
@@ -229,31 +254,6 @@ components:
           - color
           - gray
           - bitonal
-  parameters:
-    ObjectId:
-      name: objectId
-      in: path
-      required: true
-      schema:
-        type: string
-      example: uoy-logo
-    Naan:
-      name: naan
-      in: path
-      required: true
-      description: ARK Name Assigning Authority Number. The University of York's is 36941.
-      schema:
-        type: string
-        default: '36941'
-      example: '36941'
-    CollectionId:
-      name: collectionId
-      in: path
-      required: true
-      description: ARK collection segment. Observed values include numeric object-group ids and the literal "common" for site assets.
-      schema:
-        type: string
-      example: common
 x-operator: institution
 x-provenance:
   method: probed
